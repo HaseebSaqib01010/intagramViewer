@@ -8,6 +8,7 @@ const InstagramStoryViewer = () => {
 
   const fetchStories = async () => {
     if (!username) return;
+    console.log('heyyyyy')
 
     setLoading(true);
     setError(null);
