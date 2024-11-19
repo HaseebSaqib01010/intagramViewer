@@ -1,7 +1,7 @@
 // app/api/proxy/route.js
 import { NextResponse } from 'next/server';
 
-export async function GETq(req) {
+export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const url = searchParams.get('url');
 
