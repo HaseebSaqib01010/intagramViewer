@@ -13,7 +13,7 @@ const InstagramStoryViewer = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
-
+console.log('viewwww')
   const fetchStories = async () => {
     if (!username) return;
 
