@@ -215,3 +215,23 @@ export const socialMedia = [
     img: "/link.svg",
   },
 ];
+
+export type RequestUrls = {
+  posts: (username: string) => string;
+  stories: (username: string) => string;
+  reels: (username: string) => string;
+  highlights: (username: string) => string;
+  highlightsById: (id: string) => string;
+};
+export const request_urls: RequestUrls = {
+  posts: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/posts?username_or_id_or_url=${username}`,
+  stories: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/stories?username_or_id_or_url=${username}`,
+  reels: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/reels?username_or_id_or_url=${username}`,
+  highlights: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/highlights?username_or_id_or_url=${username}`,
+  highlightsById: (id: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/highlight_info?highlight_id=${id}`,
+};
