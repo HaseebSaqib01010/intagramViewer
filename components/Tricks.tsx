@@ -9,7 +9,7 @@ import { tricks } from "../data";
 const Tricks = () => {
   return (
     <section id="testimonials" className="py-20">
-      <h1 className="heading">
+      <h1 className="heading" style ={{color:"white"}}>
         Instagram
         <span className="text-purple">  Tips & Tricks</span>
       </h1>

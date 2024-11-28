@@ -6,7 +6,7 @@ import { Button } from "./ui/MovingBorders";
 const Features = () => {
   return (
     <div className="py-20 w-full">
-      <h1 className="heading">
+      <h1 className="heading"  style={{color:"white"}}>
         Key Features <span className="text-purple">InstaView App</span>
       </h1>
 
