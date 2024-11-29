@@ -16,7 +16,7 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
+        <h1 className="heading lg:max-w-[45vw]" style ={{color:"white"}}>
          Why Choose StoriesDown for <span className="text-purple"> Anonymous Instagram Viewer</span>
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
@@ -33,8 +33,8 @@ And StoriesDown app is just a very convenient Insta story viewer. There are no c
         </a>
       </div>
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © 2024 Adrian Hajdin
+        <p className="md:text-base text-sm md:font-normal font-light" style ={{color:"white"}}>
+          Copyright © 2024 Instagram Viewer
         </p>
 
         <div className="flex items-center md:gap-3 gap-6">

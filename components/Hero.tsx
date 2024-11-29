@@ -56,7 +56,7 @@ const Hero = () => {
             words="Watch Instagram Story Anonymously with Instaview"
             className="text-center text-[50px] md:text-5xl lg:text-6xl"
           />
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl" style ={{color:"white"}}>
          Account owner will never see any personal identifiers during viewing
           </p>
 

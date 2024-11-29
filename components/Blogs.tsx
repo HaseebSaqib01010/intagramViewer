@@ -8,11 +8,11 @@ import { PinContainer } from "./ui/Pin";
 const Blogs = () => {
   return (
     <div className="py-20">
-      <h1 className="heading">
+      <h1 className="heading" style ={{color:"white"}}>
         A collection of{" "}
         <span className="text-purple">recent Blogs</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-20">
         {blogs.map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
@@ -36,7 +36,7 @@ const Blogs = () => {
                 />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1"style ={{color:"white"}}>
                 {item.title}
               </h1>
 
