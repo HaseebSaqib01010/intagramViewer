@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Tabs } from "@mantine/core";
 import { request_urls } from "@/data";
-import { useSocialPosts } from "@/hooks/useSocialPosts";
-import { useSocialHighlights } from "@/hooks/useSocialHighlights";
+import { fetchSocialPosts } from "@/utils/fetchSocialPosts";
+import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
 import { Button } from "./ui/MovingBorders";
 
 type SelectedTab = keyof typeof request_urls;
 
 const InstagramStoryViewer = () => {
   const [username, setUsername] = useState("");
-  const [stories, setStories] = useState([]);
-  const [highlights, setHighlights] = useState([]);
+  const [stories, setStories] = useState<PostItem[]>([]);
+  const [highlights, setHighlights] = useState<HighlightItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
@@ -23,7 +23,7 @@ const InstagramStoryViewer = () => {
     setStories([]);
 
     try {
-      const data: any = await useSocialPosts(selectedTab, username);
+      const data: any = await fetchSocialPosts(selectedTab, username);
 
       if (!data.length) return setError(`No ${selectedTab} found.`);
       if (selectedTab === "highlights") {
@@ -50,7 +50,7 @@ const InstagramStoryViewer = () => {
     setStories([]);
 
     try {
-      const data: any = await useSocialHighlights(item.id);
+      const data: any = await fetchSocialHighlights(item.id);
 
       setStories(data);
     } catch (error) {
@@ -58,6 +58,18 @@ const InstagramStoryViewer = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  interface HighlightItem {
+    id: string;
+    cover_media: any;
+    title: string;
+  };
+  interface PostItem {
+    id: string;
+    media_type: number;
+    video_url: string;
+    image_versions: any;
   };
 
   return (
@@ -83,7 +95,7 @@ const InstagramStoryViewer = () => {
             className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
           />
         </div>
-        
+
         <button
           onClick={fetchStories}
           className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
@@ -142,7 +154,7 @@ const InstagramStoryViewer = () => {
             mt={"lg"}
             mb={"lg"}
           >
-            <Tabs.List style ={{justifyContent:"center"}}>
+            <Tabs.List style={{ justifyContent: "center" }}>
               <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
                 POSTS
               </Tabs.Tab>

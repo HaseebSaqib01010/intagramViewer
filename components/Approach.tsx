@@ -10,31 +10,31 @@ import FileDownloadRoundedIcon from '@mui/icons-material/FileDownloadRounded';
 const Approach = () => {
   return (
     <section className="w-full py-20">
-      <h1 className="heading" style ={{color:"white"}}>
-     How to use <span className="text-purple">InstaView App</span>
+      <h1 className="heading" style={{ color: "white" }}>
+        How to use <span className="text-purple">InstaView App</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {/* add des prop */}
         <Card
           title="No Account or App Registration Needed"
-          icon={<AceternityIcon order={<InstagramIcon/>} />}
+          icon={<AceternityIcon order={"1"} />}
           des="StoriesDown is a free online tool that enables you to view and download Insta stories without the knowledge of the author and no Instagram limitation. You do not need to login or install any third-party software. Our Instagram stalking function makes us completely in Incognito mode. So you are watching anyone’s Instagram stories, photos, reels videos, posts privately."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
             // add these classed for the border rounded overflowing -> rounded-3xl overflow-hidden
             containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
-               colors={[
+            colors={[
               // change the colors of the
-              [91 ,81, 216],
-              [ 193 ,53, 132],
+              [91, 81, 216],
+              [193, 53, 132],
             ]}
           />
         </Card>
         <Card
           title="Anonymous Instagram Viewer - 100% Anonymity"
-          icon={<AceternityIcon order={<HelpRoundedIcon />} />}
+          icon={<AceternityIcon order={"1"} />}
           des="You can do anything and keep an eye on anyone. We do not save any story or file on our servers. Our IgAnony viewer makes your presence invisible to the account owners. It means that you are 100% anonymous, no matter what OS(iOS/Android or Window/MAC) or device(computer/smartphone/tablet) that you are using."
         >
           <CanvasRevealEffect
@@ -43,8 +43,8 @@ const Approach = () => {
             containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
             colors={[
               // change the colors of the
-             [255,255,255]
-             
+              [255, 255, 255]
+
             ]}
             dotSize={2}
           />
@@ -54,13 +54,13 @@ const Approach = () => {
         </Card>
         <Card
           title="Instagram Story Downloader - Fast & Free"
-          icon={<AceternityIcon order={<FileDownloadRoundedIcon/>} />}
+          icon={<AceternityIcon order={"1"} />}
           des="Instagram story downloader provided by StoriesDown is fast and free. Our tool provides downloads in original/source quality. As Insta stories are temporary and usually disappear within 24 hours, it is up to you if you want to save on your device for watching later or using for online marketing strategy. Just type the username, you can download all stories, photos, videos quickly."
         >
           <CanvasRevealEffect
             animationSpeed={5}
             containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-            colors={[[253 ,29 ,29]]}
+            colors={[[253, 29, 29]]}
           />
         </Card>
       </div>

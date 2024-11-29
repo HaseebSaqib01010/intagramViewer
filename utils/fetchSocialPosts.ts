@@ -3,7 +3,7 @@ import { request_urls, RequestUrls } from "@/data";
 
 type SelectedTab = keyof RequestUrls;
 
-export const useSocialPosts = async (
+export const fetchSocialPosts = async (
   selectedTab: SelectedTab,
   username: string
 ) => {
