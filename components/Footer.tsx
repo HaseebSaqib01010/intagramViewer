@@ -1,7 +1,4 @@
-import { FaLocationArrow } from "react-icons/fa6";
-
 import { socialMedia } from "@/data";
-import MagicButton from "./MagicButton";
 
 const Footer = () => {
   return (
@@ -15,25 +12,8 @@ const Footer = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]" style ={{color:"white"}}>
-         Why Choose StoriesDown for <span className="text-purple"> Anonymous Instagram Viewer</span>
-        </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
-         Instaview offers a straightforward process, making it a great anonymous Instagram viewer and fast tool for public content downloader. Additionally, the user-friendly functionality and features have made it easier for people to spy any Instagram profiles and especially supports watching the expired stories totally free (other applications require paid subscriptions to view these deleted data).
-
-And StoriesDown app is just a very convenient Insta story viewer. There are no cookies and no files stored on your device. There’s also no registration required, and you don’t have to provide your email to use this tool. So you’re not giving out any of your data, you’re not at risk of being exposed. 100% safe!
-        </p>
-        <a href="mailto:contact@jsmastery.pro">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
-      </div>
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light" style ={{color:"white"}}>
+        <p className="md:text-base text-sm md:font-normal font-light" style={{ color: "white" }}>
           Copyright © 2024 Instagram Viewer
         </p>
 
