@@ -30,7 +30,6 @@ export async function GET(req) {
         "Content-Type": contentType,
       },
     });
-    console.log("res: ");
     return res;
   } catch (error) {
     console.error("Failed to fetch media:", error);

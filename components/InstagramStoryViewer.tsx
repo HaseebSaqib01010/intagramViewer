@@ -3,7 +3,10 @@ import { Tabs } from "@mantine/core";
 import { request_urls } from "@/data";
 import { fetchSocialPosts } from "@/utils/fetchSocialPosts";
 import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
-import { Button } from "./ui/MovingBorders";
+import { Button as UIButton } from "./ui/MovingBorders";
+import MagicButton from "./MagicButton";
+import { FiDownload } from "react-icons/fi";
+
 
 type SelectedTab = keyof typeof request_urls;
 
@@ -14,7 +17,8 @@ const InstagramStoryViewer = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
-  console.log('viewwww')
+  const [isDownloadingMedia, setIsDownloadingMedia] = useState<Record<number, boolean>>({});
+
   const fetchStories = async () => {
     if (!username) return;
 
@@ -72,8 +76,31 @@ const InstagramStoryViewer = () => {
     image_versions: any;
   };
 
+  const downloadMedia = async (url: string, fileName: string, index: number) => {
+    try {
+      setIsDownloadingMedia((prev) => ({ ...prev, [index]: true }));
+      const response = await fetch(url, { mode: 'cors' });
+      if (!response.ok) {
+        throw new Error(`Failed to fetch video: ${response.statusText}`);
+      }
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    } catch (error) {
+      console.error("Error downloading video:", error);
+    } finally {
+      setIsDownloadingMedia((prev) => ({ ...prev, [index]: false }));
+    }
+  };
+
+
   return (
-    <Button style={{
+    <UIButton style={{
       width: "100%", background: "rgb(4,7,29)",
       backgroundColor:
         "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
@@ -109,7 +136,6 @@ const InstagramStoryViewer = () => {
               display: "flex",
               alignItems: "center",
               gap: "1.25rem",
-              // overflowX: "scroll",
               flexWrap: "wrap",
               margin: "2rem 0",
               cursor: "pointer",
@@ -185,31 +211,49 @@ const InstagramStoryViewer = () => {
         {stories.length > 0 && (
           <div className="mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {stories.map((story, index) => (
-                <div key={index} className="p-2 bg-gray-800 rounded">
-                  {story.media_type === 2 ? (
-                    <video
-                      controls
-                      src={story.video_url}
-                      className="w-full h-auto rounded"
+              {stories.map((story, index) => {
+                const isVideo = story.media_type === 2;
+                const mediaUrl = isVideo
+                  ? story.video_url
+                  : `/api/proxy?url=${encodeURIComponent(
+                    story.image_versions.items[0].url
+                  )}`;
+                const fileExtension = isVideo ? 'mp4' : 'jpg';
+                const fileName = `story-${index + 1}.${fileExtension}`;
+                return (
+                  <div key={index} className="p-2 bg-gray-800 rounded">
+                    {story.media_type === 2 ? (
+                      <video
+                        controls
+                        src={story.video_url}
+                        className="w-full h-auto rounded"
+                      />
+                    ) : (
+                      <img
+                        src={`/api/proxy?url=${encodeURIComponent(
+                          story.image_versions.items[0].url
+                        )}`}
+                        alt={`Story ${index}`}
+                        className="w-full h-auto rounded"
+                      />
+                    )}
+                    <MagicButton
+                      title="Download"
+                      icon={<FiDownload size={"18px"} />}
+                      position="left"
+                      fullWidth
+                      btnClasses="md:mt-2"
+                      handleClick={() => downloadMedia(mediaUrl, fileName, index)}
+                      loading={isDownloadingMedia[index] || false}
                     />
-                  ) : (
-                    <img
-                      src={`/api/proxy?url=${encodeURIComponent(
-                        story.image_versions.items[0].url
-                      )}`}
-                      // src={`story.thumbnail_url`}
-                      alt={`Story ${index}`}
-                      className="w-full h-auto rounded"
-                    />
-                  )}
-                </div>
-              ))}
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
       </div>
-    </Button>
+    </UIButton>
   );
 };
 
