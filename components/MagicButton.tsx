@@ -18,6 +18,7 @@ const MagicButton = ({
   btnClasses,
   fullWidth = false,
   loading = false,
+  loadingText = "",
 }: {
   title: string;
   icon: React.ReactNode;
@@ -27,10 +28,11 @@ const MagicButton = ({
   btnClasses?: string;
   fullWidth?: boolean;
   loading?: boolean;
+  loadingText?: string;
 }) => {
   return (
     <button
-      className={`relative inline-flex h-12 w-full md:w-60 md:mt-10 overflow-hidden rounded-lg p-[1px] focus:outline-none ${btnClasses}`}
+      className={`cursor-pointer relative inline-flex h-12 w-full md:w-60 md:mt-10 overflow-hidden rounded-lg p-[1px] focus:outline-none ${btnClasses}`}
       style={fullWidth ? { width: "100%" } : {}}
       onClick={handleClick}
       disabled={loading}
@@ -46,7 +48,7 @@ const MagicButton = ({
           <>
             {/* Loading spinner */}
             <span className="h-5 w-5 animate-spin rounded-full border-2 border-t-transparent border-white"></span>
-            {"Downloading"}
+            {loadingText ?? "Downloading"}
           </>
         ) : (
           <>

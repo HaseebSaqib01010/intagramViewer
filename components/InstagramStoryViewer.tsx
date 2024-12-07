@@ -6,7 +6,7 @@ import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
 import { Button as UIButton } from "./ui/MovingBorders";
 import MagicButton from "./MagicButton";
 import { FiDownload } from "react-icons/fi";
-
+import { FaInstagram } from "react-icons/fa";
 
 type SelectedTab = keyof typeof request_urls;
 
@@ -117,18 +117,29 @@ const InstagramStoryViewer = () => {
           <input
             type="text"
             placeholder="Enter Instagram Username"
+            style={{
+              borderRadius: `0.75rem`,
+              padding: "1.1rem 1.25rem",
+              fontSize: "1.1rem",
+              backdropFilter: "blur(16px) saturate(180%)",
+              backgroundColor: "rgba(17, 25, 40, 0.75)",
+              border: "1px solid rgba(255, 255, 255, 0.125)",
+            }}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
           />
         </div>
 
-        <button
-          onClick={fetchStories}
-          className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Fetch Stories
-        </button>
+        <MagicButton
+          title="Fetch Profile"
+          icon={<FaInstagram size={"20px"} />}
+          position="left"
+          btnClasses="mt-0 mb-10"
+          loading={loading}
+          loadingText="Fetching Profile"
+          handleClick={fetchStories}
+        />
 
         {selectedTab === "highlights" && highlights.length > 0 && (
           <div
@@ -205,12 +216,11 @@ const InstagramStoryViewer = () => {
           </Tabs>
         )}
 
-        {loading && <p className="mt-4">Loading...</p>}
         {error && <p className="mt-4 text-red-500">{error}</p>}
 
         {stories.length > 0 && (
           <div className="mt-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 place-content-center">
               {stories.map((story, index) => {
                 const isVideo = story.media_type === 2;
                 const mediaUrl = isVideo
@@ -221,22 +231,26 @@ const InstagramStoryViewer = () => {
                 const fileExtension = isVideo ? 'mp4' : 'jpg';
                 const fileName = `story-${index + 1}.${fileExtension}`;
                 return (
-                  <div key={index} className="p-2 bg-gray-800 rounded">
-                    {story.media_type === 2 ? (
-                      <video
-                        controls
-                        src={story.video_url}
-                        className="w-full h-auto rounded"
-                      />
-                    ) : (
-                      <img
-                        src={`/api/proxy?url=${encodeURIComponent(
-                          story.image_versions.items[0].url
-                        )}`}
-                        alt={`Story ${index}`}
-                        className="w-full h-auto rounded"
-                      />
-                    )}
+                  <div key={index} style={{ height: "fit-content" }} className="p-2 bg-gray-800 rounded">
+                    <div className="" style={{ flex: 1, height: "480px", width: "100%", overflow: "hidden" }}>
+                      {story.media_type === 2 ? (
+                        <video
+                          controls
+                          src={story.video_url}
+                          className="w-full  rounded"
+                          style={{ width: "100%", objectFit: "cover" }}
+                        />
+                      ) : (
+                        <img
+                          src={`/api/proxy?url=${encodeURIComponent(
+                            story.image_versions.items[0].url
+                          )}`}
+                          alt={`Story ${index}`}
+                          className="w-full  rounded"
+                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
+                      )}
+                    </div>
                     <MagicButton
                       title="Download"
                       icon={<FiDownload size={"18px"} />}

@@ -12,6 +12,7 @@ import Features from "@/components/Features";
 import Blogs from "@/components/Blogs";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import InstagramStoryViewer from "../components/InstagramStoryViewer";
+import ContentSection from "@/components/ui/ContentSection";
 
 const theme = createTheme({});
 
@@ -24,6 +25,14 @@ const Home = () => {
           <Hero />
           <InstagramStoryViewer />
           {/* <Grid /> */}
+
+          <div className="mt-20">
+            <ContentSection
+              title="Welcome to"
+              titleHighlight="Instagram Story"
+              content="Instagram stories have become a popular feature on the platform, allowing users to share photos and videos that disappear after 24 hours. They are a fun and engaging way to share moments with your followers. However, sometimes you might want to view Instagram stories without the poster knowing, which is where an IG viewer comes in handy.Instagram stories have become a popular feature on the platform, allowing users to share photos and videos that disappear after 24 hours. They are a fun and engaging way to share moments with your followers. However, sometimes you might want to view Instagram stories without the poster knowing, which is where an IG viewer comes in handy."
+            />
+          </div>
 
           <Tricks />
           <Features />
