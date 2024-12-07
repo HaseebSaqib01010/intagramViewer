@@ -4,18 +4,21 @@ import { FaLocationArrow } from "react-icons/fa6";
 
 import { blogs } from "@/data";
 import { PinContainer } from "./ui/Pin";
+import MagicButton from "./MagicButton";
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 
 const Blogs = () => {
   return (
-    <div className="py-20">
-      <h1 className="heading" style ={{color:"white"}}>
+    <div className="py-20" >
+      <h1 className="heading" style={{ color: "white" }}>
         A collection of{" "}
         <span className="text-purple">recent Blogs</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-20">
+      <div className="flex flex-wrap items-center justify-center gap-16 mt-20">
         {blogs.map((item) => (
           <div
-            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] mb-10"
             key={item.id}
           >
             <PinContainer
@@ -36,7 +39,7 @@ const Blogs = () => {
                 />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1"style ={{color:"white"}}>
+              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1" style={{ color: "white" }}>
                 {item.title}
               </h1>
 
@@ -75,6 +78,9 @@ const Blogs = () => {
             </PinContainer>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center">
+        <MagicButton title="See More" icon={<IoIosArrowRoundForward size={"18px"} />} position="right" />
       </div>
     </div>
   );
