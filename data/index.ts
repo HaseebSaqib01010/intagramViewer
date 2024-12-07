@@ -3,6 +3,7 @@ export const navItems = [
   { name: "Blogs", link: "#blogs" },
   { name: "Features", link: "#features" },
   { name: "Contact", link: "#contact" },
+  { name: "EN", link: "#contact" },
 ];
 
 export const gridItems = [
@@ -105,26 +106,26 @@ export const blogs = [
 ];
 
 export const tricks = [
- {
+  {
     name: "Open Instagram",
-    title: "Launch Instagram from any browser or the app on your device."
+    title: "Launch Instagram from any browser or the app on your device.",
   },
   {
     name: "Get the Username:",
-    title: "Obtain the Instagram username of the account whose story you wish to view"
+    title:
+      "Obtain the Instagram username of the account whose story you wish to view",
   },
-   {
+  {
     name: "Input Username:",
-    title: "Paste the Instagram username into the input field of Highlights and Stories.",
-    
+    title:
+      "Paste the Instagram username into the input field of Highlights and Stories.",
   },
   {
- 
     name: "Click Get Stories:",
-    title: "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
+    title:
+      "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
   },
   {
-   
     name: "View Stories, Posts, Highlights, and Reels :",
     title: "You can choose to either view the story anonymously",
   },
@@ -223,8 +224,11 @@ export const request_urls: RequestUrls = {
     `https://instagram-scraper-api2.p.rapidapi.com/v1/stories?username_or_id_or_url=${username}`,
   reels: (username: string) =>
     `https://instagram-scraper-api2.p.rapidapi.com/v1/reels?username_or_id_or_url=${username}`,
+
   highlights: (username: string) =>
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlights?username_or_id_or_url=${username}`,
   highlightsById: (id: string) =>
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlight_info?highlight_id=${id}`,
+  userProfile: (username) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/info?username_or_id_or_url=${username}`,
 };

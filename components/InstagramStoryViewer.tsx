@@ -4,6 +4,7 @@ import { request_urls } from "@/data";
 import { fetchSocialPosts } from "@/utils/fetchSocialPosts";
 import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
 import { Button } from "./ui/MovingBorders";
+import InstagramProfileCard from "./ui/InstagramProfileCard";
 
 type SelectedTab = keyof typeof request_urls;
 
@@ -14,6 +15,10 @@ const InstagramStoryViewer = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
+
+  // make fetch profile data API here and show the data down below
+
+
   console.log('viewwww')
   const fetchStories = async () => {
     if (!username) return;
@@ -96,6 +101,8 @@ const InstagramStoryViewer = () => {
           />
         </div>
 
+
+
         <button
           onClick={fetchStories}
           className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
@@ -104,79 +111,91 @@ const InstagramStoryViewer = () => {
         </button>
 
         {selectedTab === "highlights" && highlights.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1.25rem",
-              // overflowX: "scroll",
-              flexWrap: "wrap",
-              margin: "2rem 0",
-              cursor: "pointer",
-            }}
-          >
-            {highlights.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.25rem",
-                }}
-                onClick={() => handleClickHighlight(item)}
-              >
-                <img
+          <>
+            <div className="m-10">
+              <InstagramProfileCard username={username} />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1.25rem",
+                // overflowX: "scroll",
+                flexWrap: "wrap",
+                margin: "2rem 0",
+                cursor: "pointer",
+              }}
+            >
+              {highlights.map((item) => (
+                <div
+                  key={item.id}
                   style={{
-                    width: "75px",
-                    height: "75px",
-                    borderRadius: "75px",
-                    objectFit: "cover",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.25rem",
                   }}
-                  src={`/api/proxy?url=${encodeURIComponent(
-                    item.cover_media.cropped_image_version.url
-                  )}`}
-                />
-                <p>{item.title}</p>
-              </div>
-            ))}
-          </div>
+                  onClick={() => handleClickHighlight(item)}
+                >
+                  <img
+                    style={{
+                      width: "75px",
+                      height: "75px",
+                      borderRadius: "75px",
+                      objectFit: "cover",
+                    }}
+                    src={`/api/proxy?url=${encodeURIComponent(
+                      item.cover_media.cropped_image_version.url
+                    )}`}
+                  />
+                  <p>{item.title}</p>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {stories.length > 0 && (
-          <Tabs
-            color="blue"
-            value={selectedTab}
-            onChange={(value) =>
-              setSelectedTab((value ?? "posts") as SelectedTab)
-            }
-            mt={"lg"}
-            mb={"lg"}
-          >
-            <Tabs.List style={{ justifyContent: "center" }}>
-              <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
-                POSTS
-              </Tabs.Tab>
-              <Tabs.Tab
-                bg={"none"}
-                value="stories"
-                style={{ fontSize: "1.25rem" }}
-              >
-                STORIES
-              </Tabs.Tab>
-              <Tabs.Tab
-                style={{ fontSize: "1.25rem" }}
-                bg={"none"}
-                value="highlights"
-              >
-                HIGHLIGHTS
-              </Tabs.Tab>
-              <Tabs.Tab bg={"none"} value="reels" style={{ fontSize: "1.25rem" }}>
-                REELS
-              </Tabs.Tab>
-            </Tabs.List>
-          </Tabs>
+          <>
+            <div className="m-10">
+              <InstagramProfileCard username={username} />
+            </div>
+
+            <Tabs
+              color="blue"
+              value={selectedTab}
+              onChange={(value) =>
+                setSelectedTab((value ?? "posts") as SelectedTab)
+              }
+              mt={"lg"}
+              mb={"lg"}
+            >
+              <Tabs.List style={{ justifyContent: "center" }}>
+                <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
+                  POSTS
+                </Tabs.Tab>
+                <Tabs.Tab
+                  bg={"none"}
+                  value="stories"
+                  style={{ fontSize: "1.25rem" }}
+                >
+                  STORIES
+                </Tabs.Tab>
+                <Tabs.Tab
+                  style={{ fontSize: "1.25rem" }}
+                  bg={"none"}
+                  value="highlights"
+                >
+                  HIGHLIGHTS
+                </Tabs.Tab>
+                <Tabs.Tab bg={"none"} value="reels" style={{ fontSize: "1.25rem" }}>
+                  REELS
+                </Tabs.Tab>
+              </Tabs.List>
+            </Tabs>
+          </>
         )}
 
         {loading && <p className="mt-4">Loading...</p>}

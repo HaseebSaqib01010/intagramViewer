@@ -16,6 +16,7 @@
     "@mantine/hooks": "^7.14.0",
     "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.2",
+    "@radix-ui/react-avatar": "^1.1.1",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@sentry/nextjs": "^7.105.0",
