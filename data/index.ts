@@ -1,7 +1,6 @@
 export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Blogs", link: "#blogs" },
-  { name: "Features", link: "#features" },
+  { name: "Story Viewer", link: "/" },
+  { name: "Blogs", link: "/blogs" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -69,8 +68,16 @@ export const gridItems = [
   },
 ];
 
-export const blogs = [
- 
+export interface BlogsType {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link: string;
+}
+
+export const blogs: BlogsType[] = [
   {
     id: 1,
     title: "Yoom - Video Conferencing App",
@@ -118,30 +125,30 @@ export const blogs = [
     img: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "/ui.aiimg.com",
-  }
+  },
 ];
 
 export const tricks = [
- {
+  {
     name: "Open Instagram",
-    title: "Launch Instagram from any browser or the app on your device."
+    title: "Launch Instagram from any browser or the app on your device.",
   },
   {
     name: "Get the Username:",
-    title: "Obtain the Instagram username of the account whose story you wish to view"
+    title:
+      "Obtain the Instagram username of the account whose story you wish to view",
   },
-   {
+  {
     name: "Input Username:",
-    title: "Paste the Instagram username into the input field of Highlights and Stories.",
-    
+    title:
+      "Paste the Instagram username into the input field of Highlights and Stories.",
   },
   {
- 
     name: "Click Get Stories:",
-    title: "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
+    title:
+      "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
   },
   {
-   
     name: "View Stories, Posts, Highlights, and Reels :",
     title: "You can choose to either view the story anonymously",
   },
