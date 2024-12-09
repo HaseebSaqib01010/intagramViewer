@@ -25,13 +25,13 @@ const Hero = () => {
         />
       </div>
 
-      <div className="flex justify-center relative my-20 z-0">
+      <div className="flex justify-center relative mb-5 z-0">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <TextGenerateEffect
             words="View Instagram Story Anonymously"
             className="text-center text-[50px] md:text-5xl lg:text-6xl"
           />
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl" style={{ color: "white" }}>
+          <p className="text-center md:tracking-wider mb-4" style={{ color: "white", fontSize: "1.25rem" }}>
             View & download Instagram Stories anonymously (without anyone knowing)
           </p>
 
