@@ -13,7 +13,7 @@ import Blogs from "@/components/Blogs";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import InstagramStoryViewer from "../components/InstagramStoryViewer";
 import ContentSection from "@/components/ui/ContentSection";
-
+import Link from "next/link";
 const theme = createTheme({});
 
 const Home = () => {
@@ -40,6 +40,12 @@ const Home = () => {
           <Blogs />
           <Footer />
         </div>
+        <Link href="/blogs" legacyBehavior>
+          <a>Blog</a>
+        </Link>
+        <Link href="/allBlogs" legacyBehavior>
+          <a>All Blogs</a>
+        </Link>
       </main>
     </MantineProvider>
   );

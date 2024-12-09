@@ -70,24 +70,17 @@ export const gridItems = [
 ];
 
 export const blogs = [
+ 
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
-  },
-  {
-    id: 2,
     title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends Lorem ipsum dolor sit amet. Eos excepturi beatae est vero doloribus ut odit distinctio qui molestias dolores eum voluptatum deleniti hic dolorem officiis sed natus fugit? Eos nulla atque et labore officia ut quam illum et voluptate magnam qui neque delectus cum quidem nesciunt qui molestiae odit Et distinctio consequuntur qui excepturi galisum non maiores earum est Quis officiis ut consequatur totam animi velitQuo itaque omnis non consequatur asperiores ut alias quidem et dolores dolore! Id tenetur enim ut numquam quod qui maiores dignissimos id consequatur minus sit aliquam inventore qui nostrum soluta? Et debitis repellat ut voluptatibus placeat aut inventore dicta aut quis accusantium ea dolor nostrum in beatae veniam In unde nemo qui iusto eligendi ut blanditiis porro in delectus facilis. Eos ducimus vero est quaerat neque et nihil modi aut amet tempore est rerum enim in voluptatum repudiandae hic corrupti facilis?",
     img: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     link: "/ui.yoom.com",
   },
   {
-    id: 3,
+    id: 2,
     title: "AI Image SaaS - Canva Application",
     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
     img: "/p3.svg",
@@ -95,13 +88,37 @@ export const blogs = [
     link: "/ui.aiimg.com",
   },
   {
-    id: 4,
+    id: 3,
     title: "Animated Apple Iphone 3D Website",
     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "/ui.apple.com",
   },
+  {
+    id: 4,
+    title: "3D Solar System Planets to Explore",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/p1.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    link: "/ui.earth.com",
+  },
+  {
+    id: 5,
+    title: "Yoom - Video Conferencing App",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    img: "/p2.svg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "/ui.yoom.com",
+  },
+  {
+    id: 6,
+    title: "AI Image SaaS - Canva Application",
+    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    img: "/p3.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    link: "/ui.aiimg.com",
+  }
 ];
 
 export const tricks = [

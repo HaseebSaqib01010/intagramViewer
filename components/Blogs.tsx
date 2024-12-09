@@ -1,11 +1,13 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
-
+import  Link  from 'next/link';
 import { blogs } from "@/data";
 import { PinContainer } from "./ui/Pin";
 import MagicButton from "./MagicButton";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import NextLink from 'next/link';
+
 
 
 const Blogs = () => {
@@ -16,7 +18,7 @@ const Blogs = () => {
         <span className="text-purple">recent Blogs</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center gap-16 mt-20">
-        {blogs.map((item) => (
+        {blogs.slice(0,3).map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] mb-10"
             key={item.id}
@@ -79,9 +81,22 @@ const Blogs = () => {
           </div>
         ))}
       </div>
+     
+        {/* <Link href="/blog" legacyBehavior icon={<IoIosArrowRoundForward size={"18px"} />} position="right"  legacyBehavior>
+          See More
+   
+        </Link> */}
+        {/* <NextLink href="/blog">See More</NextLink> */}
       <div className="flex justify-center">
-        <MagicButton title="See More" icon={<IoIosArrowRoundForward size={"18px"} />} position="right" />
+        <Link href="/blog" legacyBehavior>
+          <a>
+            <MagicButton title = "See More"> </MagicButton>
+  
+          </a>
+        </Link>
       </div>
+      
+  
     </div>
   );
 };
