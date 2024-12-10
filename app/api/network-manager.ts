@@ -1,16 +1,12 @@
-import dotenv from "dotenv";
-dotenv.config();
 export const GET = async (url: string) => {
   try {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        "x-rapidapi-key": process.env.RAPID_API_KEY,
+        "x-rapidapi-key": "deb030af37msh11c99c2cead7476p1bbce9jsnce0f8d115d41",
         "x-rapidapi-host": "instagram-scraper-api2.p.rapidapi.com",
       },
     });
-    console.log("Response status:", response.status);
-    console.log("Response headers:", response.headers);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
