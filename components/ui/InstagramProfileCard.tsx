@@ -32,17 +32,13 @@ export default function InstagramProfileCard({
     const [profileData, setProfileData] = useState<InstagramProfileData | null>(null);
     useEffect(() => {
         async function fetchProfileData() {
-            console.log('username: ', username)
             const data = await fetchUserProfile(username);
-            console.log('data: ', data)
             setProfileData(data);
         }
 
         fetchProfileData();
 
     }, [username])
-
-    console.log('profileData: ', profileData)
     if (profileData)
         return (
             <Paper
