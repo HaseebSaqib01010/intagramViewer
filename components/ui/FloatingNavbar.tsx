@@ -9,6 +9,58 @@ import {
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+import { Select } from '@mantine/core'
+
+const languages = [
+  { value: 'en', label: 'English' },
+  { value: 'de', label: 'Deutsch' },
+  { value: 'es', label: 'Español' },
+  { value: 'it', label: 'Italiano' },
+  { value: 'fr', label: 'Français' },
+  { value: 'id', label: 'Bahasa' },
+  { value: 'pl', label: 'Polish' },
+  { value: 'pt', label: 'Portuguese' },
+  { value: 'ru', label: 'Русский' },
+  { value: 'th', label: 'Thai' },
+  { value: 'tr', label: 'Turkish' }
+]
+
+export default function LanguageSelector() {
+  const [language, setLanguage] = useState('en')
+
+  return (
+    <Select
+      value={language}
+      onChange={(value) => setLanguage(value || 'en')}
+      data={languages}
+      styles={() => ({
+        input: {
+          backgroundColor: 'transparent',
+          border: 'none',
+          color: 'white',
+          cursor: 'pointer',
+          width: '140px'
+        },
+        dropdown: {
+          backgroundColor: '#f0f0f0',
+          border: '1px solid #2C2E33',
+          color: "#000",
+          borderRadius: "0.5rem",
+          marginTop: "1.25rem"
+        },
+      })}
+      classNames={{
+        root: 'min-w-[120px]',
+        input: 'py-2 px-3 text-sm font-medium',
+        dropdown: 'mt-1 rounded-md shadow-lg',
+      }}
+    />
+  )
+}
+
+
+
+
 export const FloatingNav = ({
   navItems,
   className,
@@ -75,7 +127,7 @@ export const FloatingNav = ({
         }}
       >
         <div style={{ flex: 1 }}>
-          <p style={{ color: "#fff" }}>Insta Story View</p>
+          <Link href={"/"} style={{ color: "#fff" }}>Insta Story View</Link>
         </div>
         <div className={cn(
           // change rounded-full to rounded-lg
@@ -107,7 +159,8 @@ export const FloatingNav = ({
           ))}
         </div>
         <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-          <p style={{ color: "#fff" }}>EN</p>
+          {/* <p style={{ color: "#fff" }}>EN</p> */}
+          <LanguageSelector />
         </div>
       </motion.div>
     </AnimatePresence>
