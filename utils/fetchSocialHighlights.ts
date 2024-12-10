@@ -6,8 +6,7 @@ export const fetchSocialHighlights = async (id: string) => {
   const req_url: string = request_urls.highlightsById(highlightId);
   const response = await GET(req_url);
 
-  const data = await response.json();
-  if (data.data && data.data.items) {
-    return data.data.items;
+  if (response.data && response.data.items) {
+    return response.data.items;
   }
 };

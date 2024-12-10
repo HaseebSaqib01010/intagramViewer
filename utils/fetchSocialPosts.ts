@@ -9,9 +9,7 @@ export const fetchSocialPosts = async (
 ) => {
   const req_url: string = request_urls[selectedTab](username);
   const response = await GET(req_url);
-
-  const data = await response.json();
-  if (data.data && data.data.items) {
-    return data.data.items;
+  if (response.data && response.data.items) {
+    return response.data.items;
   }
 };

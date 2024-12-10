@@ -1,7 +1,6 @@
 export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Blogs", link: "#blogs" },
-  { name: "Features", link: "#features" },
+  { name: "Story Viewer", link: "/" },
+  { name: "Blogs", link: "/blogs" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -69,25 +68,26 @@ export const gridItems = [
   },
 ];
 
-export const blogs = [
+export interface BlogsType {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link: string;
+}
+
+export const blogs: BlogsType[] = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
-  },
-  {
-    id: 2,
     title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends Lorem ipsum dolor sit amet. Eos excepturi beatae est vero doloribus ut odit distinctio qui molestias dolores eum voluptatum deleniti hic dolorem officiis sed natus fugit? Eos nulla atque et labore officia ut quam illum et voluptate magnam qui neque delectus cum quidem nesciunt qui molestiae odit Et distinctio consequuntur qui excepturi galisum non maiores earum est Quis officiis ut consequatur totam animi velitQuo itaque omnis non consequatur asperiores ut alias quidem et dolores dolore! Id tenetur enim ut numquam quod qui maiores dignissimos id consequatur minus sit aliquam inventore qui nostrum soluta? Et debitis repellat ut voluptatibus placeat aut inventore dicta aut quis accusantium ea dolor nostrum in beatae veniam In unde nemo qui iusto eligendi ut blanditiis porro in delectus facilis. Eos ducimus vero est quaerat neque et nihil modi aut amet tempore est rerum enim in voluptatum repudiandae hic corrupti facilis?",
     img: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     link: "/ui.yoom.com",
   },
   {
-    id: 3,
+    id: 2,
     title: "AI Image SaaS - Canva Application",
     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
     img: "/p3.svg",
@@ -95,36 +95,60 @@ export const blogs = [
     link: "/ui.aiimg.com",
   },
   {
-    id: 4,
+    id: 3,
     title: "Animated Apple Iphone 3D Website",
     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "/ui.apple.com",
   },
+  {
+    id: 4,
+    title: "3D Solar System Planets to Explore",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/p1.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    link: "/ui.earth.com",
+  },
+  {
+    id: 5,
+    title: "Yoom - Video Conferencing App",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    img: "/p2.svg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "/ui.yoom.com",
+  },
+  {
+    id: 6,
+    title: "AI Image SaaS - Canva Application",
+    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    img: "/p3.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    link: "/ui.aiimg.com",
+  },
 ];
 
 export const tricks = [
- {
+  {
     name: "Open Instagram",
-    title: "Launch Instagram from any browser or the app on your device."
+    title: "Launch Instagram from any browser or the app on your device.",
   },
   {
     name: "Get the Username:",
-    title: "Obtain the Instagram username of the account whose story you wish to view"
+    title:
+      "Obtain the Instagram username of the account whose story you wish to view",
   },
-   {
+  {
     name: "Input Username:",
-    title: "Paste the Instagram username into the input field of Highlights and Stories.",
-    
+    title:
+      "Paste the Instagram username into the input field of Highlights and Stories.",
   },
   {
- 
     name: "Click Get Stories:",
-    title: "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
+    title:
+      "Once you've entered the username, click the Get Stories button. The tool will immediately fetch and display the user's available stories.",
   },
   {
-   
     name: "View Stories, Posts, Highlights, and Reels :",
     title: "You can choose to either view the story anonymously",
   },
@@ -215,6 +239,7 @@ export type RequestUrls = {
   reels: (username: string) => string;
   highlights: (username: string) => string;
   highlightsById: (id: string) => string;
+  userProfile: (username: string) => string;
 };
 export const request_urls: RequestUrls = {
   posts: (username: string) =>
@@ -227,4 +252,6 @@ export const request_urls: RequestUrls = {
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlights?username_or_id_or_url=${username}`,
   highlightsById: (id: string) =>
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlight_info?highlight_id=${id}`,
+  userProfile: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/info?username_or_id_or_url=${username}`,
 };

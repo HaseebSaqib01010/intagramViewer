@@ -31,6 +31,7 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
+              style={{ fontSize: "2.25rem" }}
               key={word + idx}
 
               className={` ${idx > 2 ? "text-purple" : "dark:text-white text-black"

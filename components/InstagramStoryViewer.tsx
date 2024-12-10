@@ -7,6 +7,7 @@ import { Button as UIButton } from "./ui/MovingBorders";
 import MagicButton from "./MagicButton";
 import { FiDownload } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
+import InstagramProfileCard from "./ui/InstagramProfileCard";
 
 type SelectedTab = keyof typeof request_urls;
 
@@ -101,6 +102,7 @@ const InstagramStoryViewer = () => {
 
   return (
     <UIButton style={{
+      cursor: "auto",
       width: "100%", background: "rgb(4,7,29)",
       backgroundColor:
         "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
@@ -141,82 +143,90 @@ const InstagramStoryViewer = () => {
           handleClick={fetchStories}
         />
 
-        {selectedTab === "highlights" && highlights.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1.25rem",
-              flexWrap: "wrap",
-              margin: "2rem 0",
-              cursor: "pointer",
-            }}
-          >
-            {highlights.map((item) => (
-              <div
-                key={item.id}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.25rem",
-                }}
-                onClick={() => handleClickHighlight(item)}
-              >
-                <img
-                  style={{
-                    width: "75px",
-                    height: "75px",
-                    borderRadius: "75px",
-                    objectFit: "cover",
-                  }}
-                  src={`/api/proxy?url=${encodeURIComponent(
-                    item.cover_media.cropped_image_version.url
-                  )}`}
-                />
-                <p>{item.title}</p>
-              </div>
-            ))}
-          </div>
-        )}
 
-        {stories.length > 0 && (
-          <Tabs
-            color="blue"
-            value={selectedTab}
-            onChange={(value) =>
-              setSelectedTab((value ?? "posts") as SelectedTab)
-            }
-            mt={"lg"}
-            mb={"lg"}
-          >
-            <Tabs.List style={{ justifyContent: "center" }}>
-              <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
-                POSTS
-              </Tabs.Tab>
-              <Tabs.Tab
-                bg={"none"}
-                value="stories"
-                style={{ fontSize: "1.25rem" }}
-              >
-                STORIES
-              </Tabs.Tab>
-              <Tabs.Tab
-                style={{ fontSize: "1.25rem" }}
-                bg={"none"}
-                value="highlights"
-              >
-                HIGHLIGHTS
-              </Tabs.Tab>
-              <Tabs.Tab bg={"none"} value="reels" style={{ fontSize: "1.25rem" }}>
-                REELS
-              </Tabs.Tab>
-            </Tabs.List>
-          </Tabs>
+        {(stories.length > 0 || highlights.length > 0) && (
+          <>
+            <div className="m-10">
+              <InstagramProfileCard username={username} />
+            </div>
+            <Tabs
+              color="blue"
+              value={selectedTab}
+              onChange={(value) =>
+                setSelectedTab((value ?? "posts") as SelectedTab)
+              }
+              mt={"lg"}
+              mb={"lg"}
+            >
+              <Tabs.List style={{ justifyContent: "center" }}>
+                <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
+                  POSTS
+                </Tabs.Tab>
+                <Tabs.Tab
+                  bg={"none"}
+                  value="stories"
+                  style={{ fontSize: "1.25rem" }}
+                >
+                  STORIES
+                </Tabs.Tab>
+                <Tabs.Tab
+                  style={{ fontSize: "1.25rem" }}
+                  bg={"none"}
+                  value="highlights"
+                >
+                  HIGHLIGHTS
+                </Tabs.Tab>
+                <Tabs.Tab bg={"none"} value="reels" style={{ fontSize: "1.25rem" }}>
+                  REELS
+                </Tabs.Tab>
+              </Tabs.List>
+            </Tabs>
+          </>
         )}
 
         {error && <p className="mt-4 text-red-500">{error}</p>}
+
+        {selectedTab === "highlights" && highlights.length > 0 && (
+          <>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1.25rem",
+                flexWrap: "wrap",
+                margin: "2rem 0",
+                cursor: "pointer",
+              }}
+            >
+              {highlights.map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.25rem",
+                  }}
+                  onClick={() => handleClickHighlight(item)}
+                >
+                  <img
+                    style={{
+                      width: "75px",
+                      height: "75px",
+                      borderRadius: "75px",
+                      objectFit: "cover",
+                    }}
+                    src={`/api/proxy?url=${encodeURIComponent(
+                      item.cover_media.cropped_image_version.url
+                    )}`}
+                  />
+                  <p>{item.title}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         {stories.length > 0 && (
           <div className="mt-4">
