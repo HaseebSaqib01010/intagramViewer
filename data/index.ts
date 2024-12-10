@@ -239,6 +239,7 @@ export type RequestUrls = {
   reels: (username: string) => string;
   highlights: (username: string) => string;
   highlightsById: (id: string) => string;
+  userProfile: (username: string) => string;
 };
 export const request_urls: RequestUrls = {
   posts: (username: string) =>
@@ -251,4 +252,6 @@ export const request_urls: RequestUrls = {
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlights?username_or_id_or_url=${username}`,
   highlightsById: (id: string) =>
     `https://instagram-scraper-api2.p.rapidapi.com/v1/highlight_info?highlight_id=${id}`,
+  userProfile: (username: string) =>
+    `https://instagram-scraper-api2.p.rapidapi.com/v1/info?username_or_id_or_url=${username}`,
 };
