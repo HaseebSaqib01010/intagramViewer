@@ -20,7 +20,7 @@ const Blogs = () => {
           A collection of{" "}
           <span className="text-purple">recent Blogs</span>
         </h1>
-        <div className="flex flex-wrap items-center justify-center gap-16 mt-20">
+        <div className="flex flex-wrap items-center justify-center gap-16 mt-10">
           {blogs.slice(0, 3).map((item) => (
             <div
               className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] mb-10"
@@ -62,11 +62,11 @@ const Blogs = () => {
             </div>
           ))}
         </div>
-
+        <div className="flex justify-center mt--6">
+          <MagicButton title="See More" icon={<></>} position="right" handleClick={() => router.push('/blogs')} />
+        </div>
       </div>
-      <div className="flex justify-center">
-        <MagicButton title="See More" icon={<></>} position="right" handleClick={() => router.push('/blogs')} />
-      </div>
+     
     </>
   );
 };

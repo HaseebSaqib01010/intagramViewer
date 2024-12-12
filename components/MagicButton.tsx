@@ -21,8 +21,8 @@ const MagicButton = ({
   loadingText = "",
 }: {
   title: string;
-  icon: React.ReactNode;
-  position: string;
+  icon?: React.ReactNode;
+  position?: string;
   handleClick?: () => void;
   otherClasses?: string;
   btnClasses?: string;

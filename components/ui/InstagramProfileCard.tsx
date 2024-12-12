@@ -48,20 +48,20 @@ export default function InstagramProfileCard({
             >
                 <Text style={{ fontSize: "2rem" }} className="mb-4 font-medium">Search result</Text>
 
-                <div className='flex gap-11 mt-9'>
+                <div className='flex gap-11 items-center justify-between mb-1 mt-9 max-w-md w-full' >
                     <div>
                         <Avatar
                             src={`/api/proxy?url=${encodeURIComponent(
                                 profileData?.hd_profile_pic_url_info?.url!
                             )}`}
-                            size="xl"
-                            radius="xl"
+                            size="xxl"
                             className="border-2 border-gray-700"
+                            style={{fontSize:"5rem"}}
                         />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                         <Group>
-                            <Link style={{ fontSize: "1rem", fontWeight: "600", display: "flex", alignItems: "center", gap: "5px" }} href={`https://instagram.com/${profileData?.username}`} target='_blank' className="font-medium">@{profileData?.username}
+                            <Link style={{ fontSize: "22px", fontWeight: "600", display: "flex", alignItems: "center", gap: "5px" }} href={`https://instagram.com/${profileData?.username}`} target='_blank' className="font-medium">@{profileData?.username}
 
                                 {profileData?.isVerified && (
                                     <Badge
@@ -76,7 +76,7 @@ export default function InstagramProfileCard({
                                 <FaExternalLinkAlt size={12} />
                             </Link>
                         </Group>
-                        <Group className="my-4 text-sm">
+                        <Group className="my-4 text-sm" style={{ display: "flex", justifyContent: "space-between", width: "12rem" }}>
                             <div>
                                 <Text className="font-medium">{formatNumber(profileData?.media_count)}</Text>
                                 <Text size="sm" c="dimmed">posts</Text>
@@ -93,8 +93,8 @@ export default function InstagramProfileCard({
 
                         <Text className="font-medium mb-2">{profileData?.fullName}</Text>
 
-                        <div className="space-y-1 my-2" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                            <Text size="sm" c="dimmed">
+                        <div className="space-y-1 my-2 " style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                            <Text size="lg" c="" style={{ textAlign:"start" }}>
                                 {profileData?.biography}
                             </Text>
 
