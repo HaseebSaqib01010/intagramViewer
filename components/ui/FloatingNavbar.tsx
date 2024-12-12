@@ -10,7 +10,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import "./style.css";
 import { Select } from "@mantine/core";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "../LanguageSwitcher";
 
 const languages = [
@@ -89,16 +89,15 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -200, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.5 }}
         className={cn(
-          "max-w-full mx-auto fixed z-[5000] top-10 inset-x-0 px-6 py-4 rounded-lg border border-black/.1 shadow-md bg-black/75 text-white flex items-center justify-between"
+          "max-w-full mx-10 fixed z-[5000] top-10 inset-x-0 px-6 py-4 rounded-lg border border-black/.1 shadow-md bg-black/75 text-white flex items-center justify-between"
         )}
         style={{
           backdropFilter: "blur(16px) saturate(180%)",
         }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2" style={{marginLeft:"120px"}}>
-          <img src="/eye.svg" alt="Logo" className="h-8 w-8" style={{width:"90px", height:"60px"}}/> {/* Replace with actual logo */}
-          {/* <span className="text-lg font-semibold">Insta Story View</span> */}
+        <Link href="/" className="flex items-center gap-2">
+          <img src="/eye.svg" alt="Logo" className="h-8 w-8" style={{ width: "90px", height: "60px" }} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -107,7 +106,7 @@ export const FloatingNav = ({
             <Link
               key={idx}
               href={navItem.link}
-              className="text-sm px-4 py-2 rounded-md hover:bg-white hover:text-black transition duration-200 text-lg font-semibold"
+              className="px-4 py-2 rounded-md hover:bg-white hover:text-black transition duration-200 text-lg font-semibold"
             >
               {navItem.name}
             </Link>

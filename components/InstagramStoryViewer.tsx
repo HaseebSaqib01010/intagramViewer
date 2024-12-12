@@ -20,9 +20,10 @@ const InstagramStoryViewer = () => {
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
   const [isDownloadingMedia, setIsDownloadingMedia] = useState<Record<number, boolean>>({});
 
- 
-  
-  const fetchStories = async () => {
+
+
+  const fetchStories = async (e?: any) => {
+    e.preventDefault();
     if (!username) return;
 
     setLoading(true);
@@ -38,8 +39,14 @@ const InstagramStoryViewer = () => {
       } else {
         return setStories(data);
       }
-    } catch (error) {
-      setError(`Failed to fetch ${selectedTab}. Please try again later.`);
+    } catch (error: any) {
+      const errorStr: string = error.toString();
+      if (errorStr.includes('status: 404')) {
+        setError(`Can not fetch data from a Private Account `);
+      } else {
+        setError(`Failed to fetch ${selectedTab}. Please try again later.`);
+
+      }
     } finally {
       setLoading(false);
     }
@@ -100,13 +107,13 @@ const InstagramStoryViewer = () => {
       setIsDownloadingMedia((prev) => ({ ...prev, [index]: false }));
     }
   };
-  const onKeyPressHandler = (e) => {
-    if (e.key === 'Enter') {
-      fetchStories();
-    }
-  }
+  // const onKeyPressHandler = (e: any) => {
+  //   if (e.key === 'Enter') {
+  //     fetchStories();
+  //   }
+  // }
 
-
+  console.log('error: ', error)
 
   return (
     <UIButton style={{
@@ -122,77 +129,45 @@ const InstagramStoryViewer = () => {
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
         borderRadius: `calc(1.75rem * 0.96)`,
       }} >
-        {/* <h2 className="text-2xl mb-4">Enter Instagram username </h2> */}
-        {/* <div className="mb-0">
-          <input
-            type="text"
-            placeholder="Enter Instagram Username"
-            style={{
-              borderRadius: `0.75rem`,
-              padding: "1.1rem 1.25rem",
-              fontSize: "1.1rem",
-              backdropFilter: "blur(16px) saturate(180%)",
-              backgroundColor: "rgba(17, 25, 40, 0.75)",
-              border: "1px solid rgba(255, 255, 255, 0.125)",
-              color:"white"
-          
-            }}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onKeyPress={(e) => onKeyPressHandler(e)}
-          
-            className="w-full  rounded bg-gray-700 text-white focus:outline-none"
-            
-          />
-        </div> */}
         <div className="mb-0 relative">
-          <input
-            type="text"
-            placeholder="Enter Instagram Username"
-            style={{
-              borderRadius: `0.75rem`,
-              padding: "1.1rem 1.25rem",
-              fontSize: "1.1rem",
-              backdropFilter: "blur(16px) saturate(180%)",
-              backgroundColor: "rgba(17, 25, 40, 0.75)",
-              border: "1px solid rgba(255, 255, 255, 0.125)",
-              color: "white",
-            }}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onKeyPress={(e) => onKeyPressHandler(e)}
-            className="w-full rounded bg-gray-700 text-white focus:outline-none pl-4 pr-12" // Add padding on the right for the icon
-          />
-          <button
-            onClick={fetchStories} // Function for handling search
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <form onSubmit={(e) => fetchStories(e)}>
+            <input
+              type="text"
+              placeholder="Enter Instagram Username"
+              style={{
+                borderRadius: `0.75rem`,
+                padding: "1.1rem 1.25rem",
+                fontSize: "1.1rem",
+                backdropFilter: "blur(16px) saturate(180%)",
+                backgroundColor: "rgba(17, 25, 40, 0.75)",
+                border: "1px solid rgba(255, 255, 255, 0.125)",
+                color: "white",
+              }}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full rounded bg-gray-700 text-white focus:outline-none pl-4 pr-12"
+            />
+            <button
+              type="submit"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"
+                />
+              </svg>
+            </button>
+          </form>
         </div>
-
-        {/* <MagicButton
-          title="Fetch Profile"
-          icon={<FaInstagram size={"20px"} />}
-          position="left"
-          btnClasses="mt-0 mb-10"
-          loading={loading}
-          loadingText="Fetching Profile"
-          handleClick={fetchStories}
-        /> */}
 
 
         {(stories.length > 0 || highlights.length > 0) && (
@@ -211,8 +186,8 @@ const InstagramStoryViewer = () => {
             >
               <Tabs.List style={{ justifyContent: "center" }}>
                 <Tabs.Tab bg={"none"} value="posts" style={{ fontSize: "1.25rem" }}>
-                  <MagicButton title="POSTS"/>
-                  
+                  <MagicButton title="POSTS" />
+
                 </Tabs.Tab>
                 <Tabs.Tab
                   bg={"none"}
@@ -229,7 +204,7 @@ const InstagramStoryViewer = () => {
                   <MagicButton title="HIGHLIGHTS" />
                 </Tabs.Tab>
                 <Tabs.Tab bg={"none"} value="reels" style={{ fontSize: "1.25rem" }}>
-                  <MagicButton title="REELS"/>
+                  <MagicButton title="REELS" />
                 </Tabs.Tab>
               </Tabs.List>
             </Tabs>
