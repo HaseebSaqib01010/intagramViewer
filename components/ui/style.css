@@ -1,0 +1,32 @@
+.floating-navbar {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: aqua;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floating-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.floating-navbar li {
+  margin-right: 20px;
+}
+
+.floating-navbar a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.floating-navbar a:hover {
+  color: #666;
+}

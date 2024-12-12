@@ -1,7 +1,9 @@
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <div className="pt-36">
       <div>
@@ -29,10 +31,10 @@ const Hero = () => {
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <TextGenerateEffect
             words="View Instagram Story Anonymously"
-            className="text-center text-[50px] md:text-5xl lg:text-6xl"
+            className="text-center text-[2.5rem] md:text-7xl lg:text-18xl"
           />
-          <p className="text-center md:tracking-wider mb-4" style={{ color: "white", fontSize: "1.25rem" }}>
-            View & download Instagram Stories anonymously (without anyone knowing)
+          <p className="text-center md:tracking-wider mb-4" style={{ color: "white", fontSize: "1.5rem" }}>
+            {t('View & download Instagram Stories anonymously (without anyone knowing)')} 
           </p>
 
         </div>

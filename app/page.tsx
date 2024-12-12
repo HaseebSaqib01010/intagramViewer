@@ -15,39 +15,40 @@ import InstagramStoryViewer from "../components/InstagramStoryViewer";
 import ContentSection from "@/components/ui/ContentSection";
 import Link from "next/link";
 const theme = createTheme({});
-
+import InstagramStoryViewerFAQ from "../components/ui/FAQ";
+import TranslationWrapper from "../components/TranslationWrapper";
+import i18n from '../i18n';
+import { I18nextProvider } from 'react-i18next';
 const Home = () => {
   return (
+    <I18nextProvider i18n={i18n}>
     <MantineProvider theme={theme}>
       <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-        <div className="max-w-7xl w-full">
-          <FloatingNav navItems={navItems} />
+        <div className="max-w-7xl w-max">
+          <FloatingNav navItems={navItems} className="max-w-full mx-auto" />
           <Hero />
           <InstagramStoryViewer />
           {/* <Grid /> */}
 
-          <div className="mt-20">
-            <ContentSection
-              title="Welcome to"
-              titleHighlight="Instagram Story"
-              content="Instagram stories have become a popular feature on the platform, allowing users to share photos and videos that disappear after 24 hours. They are a fun and engaging way to share moments with your followers. However, sometimes you might want to view Instagram stories without the poster knowing, which is where an IG viewer comes in handy.Instagram stories have become a popular feature on the platform, allowing users to share photos and videos that disappear after 24 hours. They are a fun and engaging way to share moments with your followers. However, sometimes you might want to view Instagram stories without the poster knowing, which is where an IG viewer comes in handy."
-            />
-          </div>
+
 
           <Tricks />
           <Features />
           <Approach />
+          <InstagramStoryViewerFAQ />
           <Blogs />
+
           <Footer />
         </div>
-        <Link href="/blogs" legacyBehavior>
-          <a>Blog</a>
+        {/* <Link href="/blogs" legacyBehavior>
+          <a style ={{color:"white"}}>Blog</a>
         </Link>
         <Link href="/allBlogs" legacyBehavior>
           <a>All Blogs</a>
-        </Link>
+        </Link> */}
       </main>
     </MantineProvider>
+    </I18nextProvider>
   );
 };
 
