@@ -17,7 +17,7 @@ import Link from "next/link";
 const theme = createTheme({});
 import InstagramStoryViewerFAQ from "../components/ui/FAQ";
 import i18n from '../i18n';
-import { I18nextProvider } from 'react-i18next';  
+import { I18nextProvider } from 'react-i18next';
 const Home = () => {
   return (
     <I18nextProvider i18n={i18n}>
@@ -39,12 +39,6 @@ const Home = () => {
 
             <Footer />
           </div>
-          {/* <Link href="/blogs" legacyBehavior>
-          <a style ={{color:"white"}}>Blog</a>
-        </Link>
-        <Link href="/allBlogs" legacyBehavior>
-          <a>All Blogs</a>
-        </Link> */}
         </main>
       </MantineProvider>
     </I18nextProvider>
