@@ -8,24 +8,59 @@ import MagicButton from "./MagicButton";
 import { FiDownload } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import InstagramProfileCard from "./ui/InstagramProfileCard";
+import { fetchUserProfile } from "@/utils/fetchUserProfile";
 
 type SelectedTab = keyof typeof request_urls;
 
+interface InstagramProfileData {
+  username: string;
+  fullName: string;
+  biography: string;
+  hd_profile_pic_url_info: {
+    url: string;
+  };
+  media_count: number;
+  follower_count: number;
+  following_count: number;
+  isVerified: boolean;
+}
+
 const InstagramStoryViewer = () => {
   const [username, setUsername] = useState("");
-  const [stories, setStories] = useState<PostItem[]>([]);
-  const [highlights, setHighlights] = useState<HighlightItem[]>([]);
+  const [stories, setStories] = useState<PostItem[] | null>(null);
+  const [highlights, setHighlights] = useState<HighlightItem[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const [profileLoading, setProfileLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<SelectedTab>("posts");
   const [isDownloadingMedia, setIsDownloadingMedia] = useState<Record<number, boolean>>({});
+  const [isFetchProfile, setisFetchProfile] = useState(false);
+
+  const [profileData, setProfileData] = useState<InstagramProfileData | null>(null);
+
+  const fetchProfile = async () => {
+    try {
+      setProfileLoading(true);
+      const data = await fetchUserProfile(username);
+      setProfileData(data);
+    } catch (error) {
+      console.error('Failed to fetch profile:', error);
+    } finally {
+      setProfileLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (username && loading && isFetchProfile) fetchProfile();
+  }, [username, loading, isFetchProfile]);
 
 
 
-  const fetchStories = async (e?: any) => {
-    e.preventDefault();
+  const fetchStories = async (e?: any, profileFetchMode?: boolean) => {
+    e?.preventDefault();
     if (!username) return;
 
+    if (profileFetchMode) setisFetchProfile(true);
     setLoading(true);
     setError(null);
     setStories([]);
@@ -48,6 +83,7 @@ const InstagramStoryViewer = () => {
 
       }
     } finally {
+      if (profileFetchMode) setisFetchProfile(false);
       setLoading(false);
     }
   };
@@ -130,7 +166,7 @@ const InstagramStoryViewer = () => {
         borderRadius: `calc(1.75rem * 0.96)`,
       }} >
         <div className="mb-0 relative">
-          <form onSubmit={(e) => fetchStories(e)}>
+          <form onSubmit={(e) => fetchStories(e, true)}>
             <input
               type="text"
               placeholder="Enter Instagram Username"
@@ -170,11 +206,11 @@ const InstagramStoryViewer = () => {
         </div>
 
 
-        {(stories.length > 0 || highlights.length > 0) && (
+        {(stories || highlights) && (
           <>
-            <div className="m-10">
-              <InstagramProfileCard username={username} />
-            </div>
+            {!profileLoading && <div className="m-10">
+              <InstagramProfileCard profileData={profileData} />
+            </div>}
             <Tabs
               color="blue"
               value={selectedTab}
@@ -213,7 +249,7 @@ const InstagramStoryViewer = () => {
 
         {error && <p className="mt-4 text-red-500">{error}</p>}
 
-        {selectedTab === "highlights" && highlights.length > 0 && (
+        {selectedTab === "highlights" && highlights && (
           <>
             <div
               style={{
@@ -255,7 +291,7 @@ const InstagramStoryViewer = () => {
           </>
         )}
 
-        {stories.length > 0 && (
+        {stories && stories.length > 0 && (
           <div className="mt-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 place-content-center">
               {stories.map((story, index) => {
