@@ -1,7 +1,7 @@
 export const navItems = [
   { name: "Story Viewer", link: "/" },
   { name: "Blogs", link: "/blogs" },
-  { name: "Contact", link: "#contact" },
+  { name: "Contact", link: "/contact" },
 ];
 
 export const gridItems = [
