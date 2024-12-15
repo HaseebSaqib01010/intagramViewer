@@ -1,0 +1,169 @@
+
+.text-gen {
+    font-size: 3rem;
+}
+
+.sub-head{
+    font-size: 1.5rem;
+    color: white;
+}
+.navLogo{
+     width: 180px;
+     height: 60px 
+}
+.inp-sec{
+  
+                border-radius: 0.75rem;
+                padding: 1.1rem 1.25rem;
+                font-size: 1.1rem;
+                backdrop-filter: blur(16px) saturate(180%);
+                background-color: rgba(17, 25, 40, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.125);
+                color: white;
+             
+}
+.content-sec{
+    margin-top: 50px;
+
+}
+.content-sec h1{
+    font-size: 2rem;
+    color: white;
+    font-weight: 400
+}
+.content-sec span{
+    font-size: 2rem;
+    color: white;
+     font-weight: 400;
+}
+.profile-sec{
+    font-size: 2rem;
+}
+.gap-sec{
+    gap:11
+}
+.tab-sec{
+    font-size: 1.25rem;
+}
+@media (max-width: 768px) { /* Targeting devices with width 768px or smaller */
+    .text-gen {
+        font-size: 2rem; /* Adjusted font size for better readability on mobile */
+        
+    }
+    .sub-head{
+    font-size: 1rem;
+    color: white;
+}
+.navLogo{
+     width: 120px;
+     height: 40px 
+}
+.inp-sec{
+  
+                border-radius: 0.5rem;
+                padding: 0.8rem 1.25rem;
+                font-size: 0.8rem;
+                backdrop-filter: blur(16px) saturate(180%);
+                background-color: rgba(17, 25, 40, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.125);
+                color: white;
+             
+}
+.content-sec{
+    margin-top: 30px;
+
+}
+.content-sec h1{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700
+}
+.content-sec span{
+    font-size: 28px;
+    color: white;
+     font-weight: 700;
+}
+.content-sec p{
+ font-size: 1rem;
+    color: white;
+  
+}
+.benefits h1 span{
+     font-size: 1.5rem;
+}
+}
+
+@media (max-width: 480px) { /* Targeting smaller devices like phones */
+    .text-gen {
+        font-size: 1.5rem; /* Further reduced font size for compact devices */
+    }
+   .sub-head{
+    font-size: 0.8rem;
+    color: white;
+}
+.content-sec{
+    margin-top: 30px;
+
+}
+.content-sec h1{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700
+}
+.content-sec span{
+    font-size: 28px;
+    color: white;
+     font-weight: 700;
+}
+.content-sec p{
+ font-size: 1rem;
+    color: white;
+    padding: 10px;
+  
+}
+.benefits h1{
+     font-size: 1.5rem;
+}
+.benefits h1 span{
+     font-size: 1.5rem;
+}
+.benefitsCard h1 {
+    font-size: 1rem;
+}
+.benefitsCard p {
+    font-size: 0.6rem;
+}
+.benefits-sec{
+    padding:10px
+}
+.eye-img{
+    display: none;
+}
+.card-sec h2{
+    font-size: 1.2rem;
+
+}
+.card-sec p{
+    font-size: 0.8rem;
+    margin: 0px;
+
+
+}
+.FAQ h2{
+    font-size: 1.5rem;
+
+}
+.profile-sec{
+    font-size: 1rem;
+}
+.gap-sec{
+    gap:0;
+}
+.tab-sec{
+    font-size: 0.8rem;
+}
+.font-sec{
+    font-size: 0.5rem;
+}
+}
+

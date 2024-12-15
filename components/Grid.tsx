@@ -1,9 +1,16 @@
 import { gridItems } from "@/data";
 import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
-
+import "./components.css"
 const Grid = () => {
   return (
-    <section id="about">
+
+    <section id="about" className="eye-img">
+      <h1 className="heading" style={{ color: "white" , marginTop:"3rem"}}>
+        <span className="text-purple">Why Anonysview </span>
+        Stands Out
+
+
+      </h1>
       <BentoGrid className="w-full py-20">
         {gridItems.map((item, i) => (
           <BentoGridItem

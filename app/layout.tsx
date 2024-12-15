@@ -7,8 +7,8 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Instagram viewer",
-  description: "anonymous instagram story viewer",
+  title: "Anonymous Instagram Stories Viewer | View & Download",
+  description: "Explore Instagram Stories, Reels, and Profiles Anonymously. No login Required. Use the Best Anonymous Instagram Stories Viewer for Free Today.",
 };
 
 export default function RootLayout({

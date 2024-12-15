@@ -5,15 +5,16 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className="w-full py-20">
+    <section className="w-full benefits" style={{marginTop:"2rem"}}>
       <h1 className="heading" style={{ color: "white" }}>
         How to use <span className="text-purple">Instagram Story</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         <Card
-          title="No Account or App Registration Needed"
+          title="Enter Username or Link"
           icon={<AceternityIcon order={"1"} />}
-          des="StoriesDown is a free online tool that enables you to view and download Insta stories without the knowledge of the author and no Instagram limitation. You do not need to login or install any third-party software. Our Instagram stalking function makes us completely in Incognito mode. So you are watching anyone’s Instagram stories, photos, reels videos, posts privately."
+          des="Type the Instagram username or paste the profile, story, or post link into our search bar.
+"
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -25,9 +26,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Anonymous Instagram Viewer - 100% Anonymity"
+          title="Choose What to View"
           icon={<AceternityIcon order={"2"} />}
-          des="You can do anything and keep an eye on anyone. We do not save any story or file on our servers. Our IgAnony viewer makes your presence invisible to the account owners. It means that you are 100% anonymous, no matter what OS(iOS/Android or Window/MAC) or device(computer/smartphone/tablet) that you are using."
+          des="Decide what you'd like to explore: Profiles, Stories, Reels, or Highlights. Everything is accessible in one convenient place."
         >
           <CanvasRevealEffect
             animationSpeed={5}
@@ -40,12 +41,24 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Instagram Story Downloader - Fast & Free"
+          title="Watch or Download"
           icon={<AceternityIcon order={"3"} />}
-          des="Instagram story downloader provided by StoriesDown is fast and free. Our tool provides downloads in original/source quality. As Insta stories are temporary and usually disappear within 24 hours, it is up to you if you want to save on your device for watching later or using for online marketing strategy. Just type the username, you can download all stories, photos, videos quickly."
+          des="You can view the content directly on our platform or download it to your device for offline use. Your actions remain completely private.
+"
         >
           <CanvasRevealEffect
             animationSpeed={5}
+            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
+            colors={[[253, 29, 29]]}
+          />
+        </Card>
+        <Card
+          title="Repeat as Often as You Like"
+          icon={<AceternityIcon order={"4"} />}
+          des="There’s no limit to how many times you can use Anonysview. It’s entirely free and always available."
+        >
+          <CanvasRevealEffect
+            animationSpeed={2}
             containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
             colors={[[253, 29, 29]]}
           />
@@ -74,7 +87,7 @@ const Card = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="border border-black/[0.2] group/canvas-card flex items-center justify-center
-       dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl "
+       dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[30rem] rounded-3xl "
       style={{
         background: "rgb(4,7,29)",
         backgroundColor:
@@ -99,7 +112,7 @@ const Card = ({
         )}
       </AnimatePresence>
 
-      <div className="relative z-20 px-10">
+      <div className="relative z-20 px-10 card-sec">
         <div
           // add this for making it center
           // absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]

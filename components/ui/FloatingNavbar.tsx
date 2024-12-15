@@ -11,55 +11,20 @@ import { cn } from "@/lib/utils";
 import "./style.css";
 import { Select } from "@mantine/core";
 import { Menu, X } from "lucide-react";
-import LanguageSwitcher from "../LanguageSwitcher";
+import "../components.css"
 
-const languages = [
-  { value: "en", label: "English" },
-  { value: "de", label: "Deutsch" },
-  { value: "es", label: "Español" },
-  { value: "it", label: "Italiano" },
-  { value: "fr", label: "Français" },
-  { value: "id", label: "Bahasa" },
-  { value: "pl", label: "Polish" },
-  { value: "pt", label: "Portuguese" },
-  { value: "ru", label: "Русский" },
-  { value: "th", label: "Thai" },
-  { value: "tr", label: "Turkish" },
-];
-
-function LanguageSelector() {
-  const [language, setLanguage] = useState("en");
-
-  return (
-    <Select
-      value={language}
-      onChange={(value) => setLanguage(value || "en")}
-      data={languages}
-      styles={() => ({
-        input: {
-          backgroundColor: "transparent",
-          border: "none",
-          color: "white",
-          cursor: "pointer",
-          width: "140px",
-        },
-        dropdown: {
-          backgroundColor: "#f0f0f0",
-          border: "1px solid #2C2E33",
-          color: "#000",
-          borderRadius: "0.5rem",
-          marginTop: "1.25rem",
-        },
-      })}
-      classNames={{
-        root: "min-w-[20px]",
-        input: "py-2 px-3 text-sm font-medium",
-        dropdown: "mt-1 rounded-md shadow-lg",
-      }}
-    />
-  );
-}
-
+//   { value: "en", label: "English" },
+//   { value: "de", label: "Deutsch" },
+//   { value: "es", label: "Español" },
+//   { value: "it", label: "Italiano" },
+//   { value: "fr", label: "Français" },
+//   { value: "id", label: "Bahasa" },
+//   { value: "pl", label: "Polish" },
+//   { value: "pt", label: "Portuguese" },
+//   { value: "ru", label: "Русский" },
+//   { value: "th", label: "Thai" },
+//   { value: "tr", label: "Turkish" },
+// ];
 export const FloatingNav = ({
   navItems,
   className,
@@ -97,7 +62,7 @@ export const FloatingNav = ({
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/eye.svg" alt="Logo" className="h-8 w-8" style={{ width: "90px", height: "60px" }} />
+          <img src="/navBarr.png" alt="Logo" className="navLogo" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -111,7 +76,7 @@ export const FloatingNav = ({
               {navItem.name}
             </Link>
           ))}
-          <LanguageSwitcher />
+      
         </div>
 
         {/* Mobile Hamburger Menu */}
@@ -143,9 +108,7 @@ export const FloatingNav = ({
                   {navItem.name}
                 </Link>
               ))}
-              <div className="mt-4 w-full">
-                <LanguageSelector />
-              </div>
+          
             </motion.div>
           )}
         </AnimatePresence>

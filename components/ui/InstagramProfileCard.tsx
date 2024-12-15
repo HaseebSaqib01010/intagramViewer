@@ -42,13 +42,13 @@ export default function InstagramProfileCard({
     if (profileData)
         return (
             <Paper
-                className="max-w-md w-full text-white p-4 rounded-lg"
+                className="profile-sec max-w-md w-full text-white p-4 rounded-lg"
                 shadow="sm"
                 style={{ background: "none", margin: "0 auto" }}
             >
-                <Text style={{ fontSize: "2rem" }} className="mb-4 font-medium">Search result</Text>
+                <Text className = "profile-sec " className="mb-4 font-medium">Search result</Text>
 
-                <div className='flex gap-11 items-center justify-between mb-1 mt-9 max-w-md w-full' >
+                <div className='gap-sec flex gap-11 items-center justify-between mb-1 mt-9 max-w-md w-full' >
                     <div>
                         <Avatar
                             src={`/api/proxy?url=${encodeURIComponent(
@@ -76,8 +76,8 @@ export default function InstagramProfileCard({
                                 <FaExternalLinkAlt size={12} />
                             </Link>
                         </Group>
-                        <Group className="my-4 text-sm" style={{ display: "flex", justifyContent: "space-between", width: "12rem" }}>
-                            <div>
+                        <Group className="my-4 text-sm" style={{ display: "flex", justifyContent: "column", width: "12rem",gap:"10px",marginLeft:"10px" }}>
+                            <div className="" style={{marginRight:"10px"}}>
                                 <Text className="font-medium">{formatNumber(profileData?.media_count)}</Text>
                                 <Text size="sm" c="dimmed">posts</Text>
                             </div>
@@ -94,7 +94,7 @@ export default function InstagramProfileCard({
                         <Text className="font-medium mb-2">{profileData?.fullName}</Text>
 
                         <div className="space-y-1 my-2 " style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                            <Text size="lg" c="" style={{ textAlign:"start" }}>
+                            <Text className="font-sec" c="" style={{ textAlign:"start" }}>
                                 {profileData?.biography}
                             </Text>
 
