@@ -83,3 +83,10 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
+
+.mantine-TextInput-error {
+  color: #fe0d45;
+}
+.mantine-Textarea-error {
+  color: #fe0d45;
+}
