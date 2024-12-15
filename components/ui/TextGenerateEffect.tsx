@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
-
+import "../components.css"
 export const TextGenerateEffect = ({
   words,
   className,
@@ -31,11 +31,11 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
-              style={{ fontSize: "2.25rem" }}
+        
               key={word + idx}
 
-              className={` ${idx > 2 ? "text-purple" : "dark:text-white text-black"
-                } opacity-0`}
+              className={` text-gen ${idx > 2 ? "text-purple" : "dark:text-white text-black"
+                } opacity-0` }
             >
               {word}{" "}
             </motion.span>

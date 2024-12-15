@@ -9,7 +9,7 @@ import { FiDownload } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import InstagramProfileCard from "./ui/InstagramProfileCard";
 import { fetchUserProfile } from "@/utils/fetchUserProfile";
-
+import "./components.css";
 type SelectedTab = keyof typeof request_urls;
 
 interface InstagramProfileData {
@@ -158,6 +158,7 @@ const InstagramStoryViewer = () => {
       backgroundColor:
         "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       borderRadius: `calc(1.75rem * 0.96)`,
+      margin:" auto"
     }}>
       <div className="w-full p-5 bg-gray-900 text-white rounded-md" style={{
         background: "rgb(4,7,29)",
@@ -170,18 +171,9 @@ const InstagramStoryViewer = () => {
             <input
               type="text"
               placeholder="Enter Instagram Username"
-              style={{
-                borderRadius: `0.75rem`,
-                padding: "1.1rem 1.25rem",
-                fontSize: "1.1rem",
-                backdropFilter: "blur(16px) saturate(180%)",
-                backgroundColor: "rgba(17, 25, 40, 0.75)",
-                border: "1px solid rgba(255, 255, 255, 0.125)",
-                color: "white",
-              }}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full rounded bg-gray-700 text-white focus:outline-none pl-4 pr-12"
+              className="inp-sec w-full rounded bg-gray-700 text-white focus:outline-none pl-4 pr-12"
             />
             <button
               type="submit"
@@ -208,11 +200,11 @@ const InstagramStoryViewer = () => {
 
         {(stories || highlights) && (
           <>
-            {!profileLoading && <div className="m-10">
-              <InstagramProfileCard profileData={profileData} />
-            </div>}
+            <div className="m-0">
+              <InstagramProfileCard username={username} />
+            </div>
             <Tabs
-              color="blue"
+              color="black"
               value={selectedTab}
               onChange={(value) =>
                 setSelectedTab((value ?? "posts") as SelectedTab)
@@ -226,6 +218,7 @@ const InstagramStoryViewer = () => {
 
                 </Tabs.Tab>
                 <Tabs.Tab
+                className="tab-sec"
                   bg={"none"}
                   value="stories"
                   style={{ fontSize: "1.25rem" }}

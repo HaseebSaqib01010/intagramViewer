@@ -10,8 +10,10 @@ const Tricks = () => {
   return (
     <section id="testimonials" className="py-20">
       <h1 className="heading" style ={{color:"white"}}>
-        Instagram
-        <span className="text-purple">  Tips & Tricks</span>
+        <span className="text-purple">Why Anonysview </span>
+        Stands Out
+
+        
       </h1>
 
       <div className="flex flex-col items-center max-lg:mt-10">
