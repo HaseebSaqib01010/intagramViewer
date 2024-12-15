@@ -9,33 +9,30 @@ import {
 export default function InstagramStoryViewerFAQ() {
     const faqs = [
         {
-            question: "What is an Instagram Story viewer?",
-            answer: "An Instagram Story viewer is a tool that allows you to view Instagram Stories anonymously, without the story owner knowing you've seen their content."
+            question: "What is Anonysview?",
+            answer: "Anonysview is a free tool for viewing Instagram profiles, stories, reels, and highlights anonymously without logging in or registering ."
         },
         {
-            question: "Is it legal to use an Instagram Story viewer?",
-            answer: "While it's not illegal to view public content, using third-party tools to access Instagram content may violate Instagram's terms of service. Always use such tools responsibly and at your own risk."
+            question: "Do I need to pay to use Anonysview?",
+            answer: "No, Anonysview is entirely free to use, with no hidden charges."
         },
         {
-            question: "Can I download Stories using this viewer?",
-            answer: "Our Instagram Story viewer is designed for viewing only. Downloading or saving others' content without permission may infringe on copyright laws and Instagram's terms of service."
+            question: "Can I download Instagram content?",
+            answer: "You can download stories, reels, and posts directly to your device while remaining anonymous."
         },
         {
-            question: "Do I need an Instagram account to use this viewer?",
-            answer: "No, you typically don't need an Instagram account to use most Instagram Story viewers. However, you'll need to know the username of the account whose stories you want to view."
+            question: "Is Anonysview safe?",
+            answer: "Absolutely yes. We use advanced encryption to protect your identity and ensure your privacy.."
         },
         {
-            question: "Will the story owner know I viewed their story?",
-            answer: "No, when using our Instagram Story viewer, the story owner will not be notified that you've viewed their story. Your viewing remains anonymous."
+            question: "How do I get started?",
+            answer: "Enter the Instagram username or link into the search bar, select the content you want to view, and start exploring anonymously."
         },
-        {
-            question: "How recent are the stories I can view?",
-            answer: "Our viewer typically shows stories posted within the last 24 hours, which is the standard lifespan of an Instagram Story."
-        }
+ 
     ]
 
     return (
-        <div className="w-full  mx-auto p-8 bg-[#0a061d]/60 backdrop-blur-sm rounded-xl border border-gray-800">
+        <div className="FAQ w-full  mx-auto p-8 bg-[#0a061d]/60 backdrop-blur-sm rounded-xl border border-gray-800">
             <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
                 Frequently Asked Questions
             </h2>
