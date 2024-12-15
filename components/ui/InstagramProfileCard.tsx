@@ -5,12 +5,12 @@ import { formatNumber } from '@/utils/formatNumbers'
 import { Avatar, Badge, Group, Paper, Text, ActionIcon } from '@mantine/core'
 import { IconCheck, IconLink } from '@tabler/icons-react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 
 interface ProfileCardProps {
-    username: string
+    profileData: InstagramProfileData | null;
 }
 
 interface InstagramProfileData {
@@ -26,19 +26,8 @@ interface InstagramProfileData {
     isVerified: boolean;
 }
 
-export default function InstagramProfileCard({
-    username
-}: ProfileCardProps) {
-    const [profileData, setProfileData] = useState<InstagramProfileData | null>(null);
-    useEffect(() => {
-        async function fetchProfileData() {
-            const data = await fetchUserProfile(username);
-            setProfileData(data);
-        }
+const InstagramProfileCard = memo(({ profileData }: ProfileCardProps) => {
 
-        fetchProfileData();
-
-    }, [username])
     if (profileData)
         return (
             <Paper
@@ -56,7 +45,7 @@ export default function InstagramProfileCard({
                             )}`}
                             size="xxl"
                             className="border-2 border-gray-700"
-                            style={{fontSize:"5rem"}}
+                            style={{ fontSize: "5rem" }}
                         />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
@@ -94,7 +83,7 @@ export default function InstagramProfileCard({
                         <Text className="font-medium mb-2">{profileData?.fullName}</Text>
 
                         <div className="space-y-1 my-2 " style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                            <Text size="lg" c="" style={{ textAlign:"start" }}>
+                            <Text size="lg" c="" style={{ textAlign: "start" }}>
                                 {profileData?.biography}
                             </Text>
 
@@ -103,5 +92,7 @@ export default function InstagramProfileCard({
                 </div>
             </Paper>
         )
-}
+})
+
+export default InstagramProfileCard;
 
