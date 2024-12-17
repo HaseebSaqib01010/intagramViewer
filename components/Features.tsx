@@ -51,19 +51,19 @@ const Features = () => {
           <img
             src="/featured.webp"
             alt="Central Image"
-               className="w-full max-w-md lg:max-w-lg"
+               className="w-full max-w-md lg:max-w-lg eye-img"
             width="100%"
               style={{ borderRadius: "1rem" }} 
-              className="eye-img"
+             
           />
         </div>
           <div className="flex justify-center">
             <img
               src="https://inflact.com/new/img/instagram-viewer/ability-tracker-image.png"
               alt="Central Image"
-              className="w-full max-w-md lg:max-w-lg"
+              className="w-full max-w-md lg:max-w-lg eye-img"
               width="100%"
-              className="eye-img"
+             
             />
           </div>
         </div>

@@ -27,7 +27,6 @@ interface InstagramProfileData {
 }
 
 const InstagramProfileCard = memo(({ profileData }: ProfileCardProps) => {
-
     if (profileData)
         return (
             <Paper
@@ -35,7 +34,7 @@ const InstagramProfileCard = memo(({ profileData }: ProfileCardProps) => {
                 shadow="sm"
                 style={{ background: "none", margin: "0 auto" }}
             >
-                <Text className = "profile-sec " className="mb-4 font-medium">Search result</Text>
+                <Text className="profile-sec mb-4 font-medium">Search result</Text>
 
                 <div className='gap-sec flex gap-11 items-center justify-between mb-1 mt-9 max-w-md w-full' >
                     <div>
@@ -65,8 +64,8 @@ const InstagramProfileCard = memo(({ profileData }: ProfileCardProps) => {
                                 <FaExternalLinkAlt size={12} />
                             </Link>
                         </Group>
-                        <Group className="my-4 text-sm" style={{ display: "flex", justifyContent: "column", width: "12rem",gap:"10px",marginLeft:"10px" }}>
-                            <div className="" style={{marginRight:"10px"}}>
+                        <Group className="my-4 text-sm" style={{ display: "flex", justifyContent: "column", width: "12rem", gap: "10px", marginLeft: "10px" }}>
+                            <div className="" style={{ marginRight: "10px" }}>
                                 <Text className="font-medium">{formatNumber(profileData?.media_count)}</Text>
                                 <Text size="sm" c="dimmed">posts</Text>
                             </div>
@@ -94,5 +93,10 @@ const InstagramProfileCard = memo(({ profileData }: ProfileCardProps) => {
         )
 })
 
+InstagramProfileCard.displayName = 'InstagramProfileCard';
+
 export default InstagramProfileCard;
+
+
+
 

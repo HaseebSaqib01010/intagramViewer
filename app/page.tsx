@@ -47,7 +47,7 @@ const Home = () => {
       <Features />
       <Grid />
       <Approach />
-      <ContentSection titleHighlight='Final Thoughts' content="Anonysview is designed to make your Instagram experience private, secure, and effortless. Whether you’re staying updated on someone’s stories, saving reels for later, or browsing profiles out of curiosity, our platform ensures you can do it all privately and without restrictions.
+      <ContentSection title='' titleHighlight='Final Thoughts' content="Anonysview is designed to make your Instagram experience private, secure, and effortless. Whether you’re staying updated on someone’s stories, saving reels for later, or browsing profiles out of curiosity, our platform ensures you can do it all privately and without restrictions.
 There are no logins, sign-ups, or complications—just straightforward access to the Instagram content you want. With Anonysview, the ultimate Anonymous Instagram Stories Viewer, you can confidently explore.
 Try it today and experience the easiest way to view and save Instagram content anonymously.
 
