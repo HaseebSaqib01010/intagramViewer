@@ -36,7 +36,7 @@ const Hero = () => {
           <p
             className=" sub-head text-center sm:tracking-wide md:tracking-wider mb-4 text-sm sm:text-base md:text-lg lg:text-xl"
           >
-            'View & download Instagram Profile anonymously (without anyone knowing)'
+            View & download Instagram Profile anonymously (without anyone knowing)
           </p>
         </div>
       </div>

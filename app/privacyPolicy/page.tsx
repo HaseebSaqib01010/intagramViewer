@@ -21,7 +21,7 @@ const page = () => {
 
                 </h1> 
              <div  className="text-white-300 md:mt-10 my-5 text-justify " style={{ color: "white",fontSize:"1.3rem"}} >
-                <p>At Anonysview, we understand the importance of PrivacyPrivacy. Here's how we keep your data secure:</p>
+                <p>At Anonysview we understand the importance of PrivacyPrivacy. Here how we keep your data secure:</p>
                 <li>
                     <b>Strict No-Log Policy : </b>
                      We don’t store or track your browsing activity.

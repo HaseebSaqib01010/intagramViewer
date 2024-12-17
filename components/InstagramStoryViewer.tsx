@@ -201,7 +201,7 @@ const InstagramStoryViewer = () => {
         {(stories || highlights) && (
           <>
             <div className="m-0">
-              <InstagramProfileCard username={username} />
+              <InstagramProfileCard profileData={profileData} />
             </div>
             <Tabs
               color="black"
