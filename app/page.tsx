@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import Tricks from "@/components/Tricks";
 import Approach from "@/components/Approach";
 import Features from "@/components/Features";
-import Blogs from "@/components/Blogs";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import InstagramStoryViewer from "../components/InstagramStoryViewer";
 import ContentSection from "@/components/ui/ContentSection";
@@ -20,7 +19,7 @@ import i18n from "../i18n";
 import AppWrapper from "@/components/AppWrapper";
 // import { I18nextProvider } from 'react-i18next';
 const Home = () => {
- 
+
   return (
     // <I18nextProvider i18n={i18n}>
     // <MantineProvider theme={theme}>
@@ -56,7 +55,7 @@ Try it today and experience the easiest way to view and save Instagram content a
 
       <InstagramStoryViewerFAQ />
       {/* <Blogs /> */}
- 
+
       <Footer />
       {/* </div> */}
     </AppWrapper>
