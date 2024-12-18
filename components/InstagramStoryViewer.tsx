@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { Tabs } from "@mantine/core";
 import { request_urls } from "@/data";
@@ -129,17 +130,19 @@ const InstagramStoryViewer = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch video: ${response.statusText}`);
       }
-     
-          const blob = await response.blob();
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          URL.revokeObjectURL(link.href);
-      
- 
+      if (typeof window !== 'undefined') {
+        // Code that uses `document` or `window` goes here
+        const blob = await response.blob();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+      }
+
+
     } catch (error) {
       console.error("Error downloading video:", error);
     } finally {
@@ -161,7 +164,7 @@ const InstagramStoryViewer = () => {
       backgroundColor:
         "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       borderRadius: `calc(1.75rem * 0.96)`,
-      margin:" auto"
+      margin: " auto"
     }}>
       <div className="w-full p-5 bg-gray-900 text-white rounded-md" style={{
         background: "rgb(4,7,29)",
@@ -221,7 +224,7 @@ const InstagramStoryViewer = () => {
 
                 </Tabs.Tab>
                 <Tabs.Tab
-                className="tab-sec"
+                  className="tab-sec"
                   bg={"none"}
                   value="stories"
                   style={{ fontSize: "1.25rem" }}
