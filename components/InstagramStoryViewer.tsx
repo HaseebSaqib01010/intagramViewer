@@ -130,17 +130,17 @@ const InstagramStoryViewer = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch video: ${response.statusText}`);
       }
-      if (typeof window !== 'undefined' && document) {
-        // Code that uses `document` or `window` goes here
-        const blob = await response.blob();
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(link.href);
-      }
+      // if (typeof window !== 'undefined' && document) {
+      //   // Code that uses `document` or `window` goes here
+      //   const blob = await response.blob();
+      //   const link = document.createElement('a');
+      //   link.href = URL.createObjectURL(blob);
+      //   link.download = fileName;
+      //   document.body.appendChild(link);
+      //   link.click();
+      //   document.body.removeChild(link);
+      //   URL.revokeObjectURL(link.href);
+      // }
 
 
     } catch (error) {
