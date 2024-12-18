@@ -20,13 +20,7 @@ import i18n from "../i18n";
 import AppWrapper from "@/components/AppWrapper";
 // import { I18nextProvider } from 'react-i18next';
 const Home = () => {
-  useEffect(() => {
-    // Safely access `document` here
-    if (typeof document !== "undefined") {
-      // You can now interact with `document` safely, e.g., DOM manipulation
-      console.log("Document is available");
-    }
-  }, []);
+ 
   return (
     // <I18nextProvider i18n={i18n}>
     // <MantineProvider theme={theme}>

@@ -4,7 +4,7 @@ import { request_urls } from "@/data";
 import { fetchSocialPosts } from "@/utils/fetchSocialPosts";
 import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
 import { Button as UIButton } from "./ui/MovingBorders";
-import MagicButton from "./MagicButton";
+import MagicButton from "../components/MagicButton";
 import { FiDownload } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import InstagramProfileCard from "./ui/InstagramProfileCard";
@@ -129,9 +129,7 @@ const InstagramStoryViewer = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch video: ${response.statusText}`);
       }
-      useEffect(() => {
-       
-        if (typeof document !== "undefined") {
+     
           const blob = await response.blob();
           const link = document.createElement('a');
           link.href = URL.createObjectURL(blob);
@@ -140,8 +138,7 @@ const InstagramStoryViewer = () => {
           link.click();
           document.body.removeChild(link);
           URL.revokeObjectURL(link.href);
-        }
-      }, []);
+      
  
     } catch (error) {
       console.error("Error downloading video:", error);
@@ -207,7 +204,7 @@ const InstagramStoryViewer = () => {
         {(stories || highlights) && (
           <>
             <div className="m-0">
-              <InstagramProfileCard username={username} />
+              <InstagramProfileCard profileData={profileData} />
             </div>
             <Tabs
               color="black"
