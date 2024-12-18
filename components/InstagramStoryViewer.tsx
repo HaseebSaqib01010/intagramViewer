@@ -4,7 +4,7 @@ import { request_urls } from "@/data";
 import { fetchSocialPosts } from "@/utils/fetchSocialPosts";
 import { fetchSocialHighlights } from "@/utils/fetchSocialHighlights";
 import { Button as UIButton } from "./ui/MovingBorders";
-import MagicButton from "./MagicButton";
+import MagicButton from "../components/MagicButton";
 import { FiDownload } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import InstagramProfileCard from "./ui/InstagramProfileCard";
@@ -129,14 +129,17 @@ const InstagramStoryViewer = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch video: ${response.statusText}`);
       }
-      const blob = await response.blob();
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(link.href);
+     
+          const blob = await response.blob();
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(link.href);
+      
+ 
     } catch (error) {
       console.error("Error downloading video:", error);
     } finally {
