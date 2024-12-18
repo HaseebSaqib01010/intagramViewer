@@ -130,7 +130,7 @@ const InstagramStoryViewer = () => {
       if (!response.ok) {
         throw new Error(`Failed to fetch video: ${response.statusText}`);
       }
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && document) {
         // Code that uses `document` or `window` goes here
         const blob = await response.blob();
         const link = document.createElement('a');
