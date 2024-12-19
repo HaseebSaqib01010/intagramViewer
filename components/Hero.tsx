@@ -1,5 +1,5 @@
 import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+// import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
