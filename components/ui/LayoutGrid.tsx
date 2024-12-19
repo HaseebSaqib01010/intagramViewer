@@ -58,7 +58,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
                   ? "z-40 bg-white rounded-xl h-full w-full"
                   : "bg-white rounded-xl h-full w-full"
               )}
-              layout
+             
             >
               {selected?.id === card.id && <SelectedCard selected={selected} />}
               <BlurImage card={card} />
@@ -72,7 +72,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
           "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
           selected?.id ? "pointer-events-auto" : "pointer-events-none"
         )}
-        animate={{ opacity: selected?.id ? 0.3 : 0 }}
+        // animate={{ opacity: selected?.id ? 0.3 : 0 }}
       />
     </div>
   );
@@ -99,7 +99,7 @@ const BlurImage = ({ card }: { card: Card }) => {
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
     <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
-      <div
+      {/* <div
         initial={{
           opacity: 0,
         }}
@@ -124,7 +124,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
         className="relative px-8 pb-4 z-[70]"
       >
         {selected?.content}
-      </div>
+      </div> */}
     </div>
   );
 };

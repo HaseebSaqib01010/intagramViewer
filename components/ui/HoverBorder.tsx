@@ -88,13 +88,13 @@ export function HoverBorderGradient({
             width: "100%",
             height: "100%",
           }}
-          initial={{ background: movingMap[direction] }}
-          animate={{
-            background: hovered
-              ? [movingMap[direction], highlight]
-              : movingMap[direction],
-          }}
-          transition={{ ease: "linear", duration }}
+          // initial={{ background: movingMap[direction] }}
+          // animate={{
+          //   background: hovered
+          //     ? [movingMap[direction], highlight]
+          //     : movingMap[direction],
+          // }}
+          // transition={{ ease: "linear", duration }}
         />
       )}
 
