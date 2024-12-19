@@ -1,7 +1,7 @@
 import { Spotlight } from "./ui/Spotlight";
 // import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { useTranslation } from 'react-i18next';
-
+import ContentSection from "./ui/ContentSection";
 const Hero = () => {
   const { t } = useTranslation();
   return (
@@ -29,10 +29,11 @@ const Hero = () => {
 
       <div className="flex justify-center relative mb-5 z-0">
         <div className="max-w-[90vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <TextGenerateEffect
+          <ContentSection title ="View Instagram Story Anonymously"/>
+          {/* <TextGenerateEffect
             words="View Instagram Story Anonymously"
             className="text-center text-[1rem] sm:text-2xl md:text-5xl lg:text-7xl"
-          />
+          /> */}
           <p
             className=" sub-head text-center sm:tracking-wide md:tracking-wider mb-4 text-sm sm:text-base md:text-lg lg:text-xl"
           >
