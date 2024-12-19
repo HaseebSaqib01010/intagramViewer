@@ -127,7 +127,7 @@ const Contact = () => {
                                 borderRadius: '5px',
                                 border: '2px solid white',
                                 outline: 'none',
-                                
+
                             }}
                         />
                         <label htmlFor="" style={labelStyle}>Email</label>
@@ -166,9 +166,9 @@ const Contact = () => {
                         />
 
 
-                    </div>
+                 </div>
 
-                    <Flex align="center" justify="space-between" mt="xl" style={
+                  <Flex align="center" justify="space-between" mt="xl" style={
                         {
                             width: "100%"
                         }}>
@@ -184,11 +184,4 @@ const Contact = () => {
 }
 
 export default Contact
-
-
-
-
-
-
-
 

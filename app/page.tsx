@@ -6,7 +6,6 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
-import Tricks from "@/components/Tricks";
 import Approach from "@/components/Approach";
 import Features from "@/components/Features";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
@@ -41,8 +40,6 @@ const Home = () => {
         Start your journey with Anonysview, the most trusted Anonymous Instagram Stories Viewer, and experience private browsing like never before.
 "
       />
-
-      {/* <Tricks /> */}
 
       <Features />
       <Grid />
