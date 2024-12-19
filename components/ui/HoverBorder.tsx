@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -21,11 +21,15 @@ export function HoverBorderGradient({
   duration?: number;
   clockwise?: boolean;
 }> & React.HTMLAttributes<HTMLElement>) {
-  // State for hover and direction
   const [hovered, setHovered] = useState(false);
   const [direction, setDirection] = useState<Direction>("TOP");
+  const [isMounted, setIsMounted] = useState(false); // Track if the component is mounted
 
-  // Define gradient directions and transitions
+  // Ensure component is mounted before running DOM-related operations
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
   const rotateDirection = (current: Direction): Direction => {
     const index = directions.indexOf(current);
@@ -45,7 +49,7 @@ export function HoverBorderGradient({
   const highlight =
     "radial-gradient(75% 181.2% at 50% 50%, #3275F8 0%, rgba(255, 255, 255, 0) 100%)";
 
-  // Update direction every `duration` seconds when not hovered
+  // Update direction periodically when not hovered
   useEffect(() => {
     if (!hovered) {
       const interval = setInterval(() => {
@@ -76,7 +80,7 @@ export function HoverBorderGradient({
       </div>
 
       {/* Animated Background */}
-      {typeof window !== "undefined" && (
+      {isMounted && (
         <motion.div
           className="absolute inset-0 z-0 rounded-[inherit] overflow-hidden"
           style={{
