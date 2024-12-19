@@ -29,7 +29,7 @@ const Hero = () => {
 
       <div className="flex justify-center relative mb-5 z-0">
         <div className="max-w-[90vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <ContentSection title ="View Instagram Story Anonymously"/>
+          <ContentSection title="View Instagram Story Anonymously" titleHighlight="" content="" />
           {/* <TextGenerateEffect
             words="View Instagram Story Anonymously"
             className="text-center text-[1rem] sm:text-2xl md:text-5xl lg:text-7xl"
