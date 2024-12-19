@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
-// import { cn } from "@/lib/utils";
+// import { motion, stagger, useAnimate } from "framer-motion";
+import { cn } from "@/lib/utils";
 import "../components.css"
 export const TextGenerateEffect = ({
   words,
@@ -25,34 +25,34 @@ export const TextGenerateEffect = ({
     );
   }, [scope.current]);
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
+  // const renderWords = () => {
+  //   return (
+  //     <motion.div ref={scope}>
+  //       {wordsArray.map((word, idx) => {
+  //         return (
+  //           <motion.span
         
-              key={word + idx}
+  //             key={word + idx}
 
-              className={` text-gen ${idx > 2 ? "text-purple" : "dark:text-white text-black"
-                } opacity-0` }
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
+  //             className={` text-gen ${idx > 2 ? "text-purple" : "dark:text-white text-black"
+  //               } opacity-0` }
+  //           >
+  //             {word}{" "}
+  //           </motion.span>
+  //         );
+  //       })}
+  //     </motion.div>
+  //   );
+  // };
 
   return (
-    // <div className={cn("font-bold", className)}>
-   
-    // </div>
-       <div className="my-4">
+    <div className={cn("font-bold", className)}>
+      <div className="my-4">
         <div className=" dark:text-white text-black leading-snug tracking-wide">
-          {renderWords()}
+          {/* {renderWords()} */}
         </div>
       </div>
+    </div>
+     
   );
 };
