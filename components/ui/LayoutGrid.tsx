@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "./MovingBorders";
@@ -47,7 +47,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               "relative border-3 border-yellow-500"
             )}
           >
-            <motion.div
+            <div
               onClick={() => handleClick(card)}
               className={cn(
                 card.className,
@@ -62,11 +62,11 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
             >
               {selected?.id === card.id && <SelectedCard selected={selected} />}
               <BlurImage card={card} />
-            </motion.div>
+            </div>
           </div>
         </Button>
       ))}
-      <motion.div
+      <div
         onClick={handleOutsideClick}
         className={cn(
           "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
@@ -99,7 +99,7 @@ const BlurImage = ({ card }: { card: Card }) => {
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
     <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
-      <motion.div
+      <div
         initial={{
           opacity: 0,
         }}
@@ -108,7 +108,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
         }}
         className="absolute inset-0 h-full w-full bg-black opacity-60 z-10"
       />
-      <motion.div
+      <div
         initial={{
           opacity: 0,
           y: 100,
@@ -124,7 +124,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
         className="relative px-8 pb-4 z-[70]"
       >
         {selected?.content}
-      </motion.div>
+      </div>
     </div>
   );
 };

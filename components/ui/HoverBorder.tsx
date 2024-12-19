@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
@@ -81,7 +81,7 @@ export function HoverBorderGradient({
 
       {/* Animated Background */}
       {isMounted && (
-        <motion.div
+        <div
           className="absolute inset-0 z-0 rounded-[inherit] overflow-hidden"
           style={{
             filter: "blur(2px)",
